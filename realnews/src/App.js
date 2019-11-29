@@ -1,13 +1,16 @@
 import React from 'react';
-// import {Router}  from '@reach/router';
+import {Router}  from '@reach/router';
 import './App.css';
+import Homepage from './Components/Homepage'
 
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+     <Router>
+       <Homepage path="/"/>
+     </Router>
+    </>
   );
 }
 
