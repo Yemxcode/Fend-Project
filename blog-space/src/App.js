@@ -5,7 +5,7 @@ import Homepage from './Components/Homepage'
 import Layout from './Layouts/Layout'
 import NavigationBar from './Layouts/Navigation';
 import Jumbotron from './Layouts/Jumbotron'
-
+import Articles from './Components/Articles'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Layout>
      <Router>
        <Homepage path="/"/>
-       
+       <Articles path="/articles" />
      </Router>
      </Layout>
     </>

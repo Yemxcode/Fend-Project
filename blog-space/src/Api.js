@@ -34,6 +34,17 @@ export const getUsers = () => {
   return axios.get(`${baseUrl}users`).then(({ data }) => data);
 };
 
+// export const getArtAndTop = () => {
+//   return axios.all([
+//     axios.get(`${baseUrl}topics`),
+//     axios.get(`${baseUrl}articles`)
+//   ]).then(axios.spread(([topicsRes, articlesRes]) => (topicsRes, articlesRes) ));
+// };
+
+export const getTopics = () => {
+  return axios.get(`${baseUrl}topics`).then(({ data }) => data);
+};
+
 export const patchVotes = (commentOrArticle, id, vote) => {
   return axios
     .patch(`${baseUrl}${commentOrArticle}/${id}`, vote)
@@ -43,8 +54,6 @@ export const patchVotes = (commentOrArticle, id, vote) => {
 export const deleteCommentById = id => {
   return axios.delete(`${baseUrl}comments/${id}`).then(res => res);
 };
-
-
 
 export const deleteArticleById = id => {
   return axios.delete(`${baseUrl}articles/${id}`).then(res => res);
@@ -56,23 +65,14 @@ export const postTopic = (description, slug) => {
     .then(({ data }) => data);
 };
 
-export const postArticle = (
-         author,
-         body,
-         topic,
-         title
-       ) => {
-         return axios
-           .post(`${baseUrl}articles`, { author, body, topic, title })
-           .then(({ data }) => data);
-       };
+export const postArticle = (author, body, topic, title) => {
+  return axios
+    .post(`${baseUrl}articles`, { author, body, topic, title })
+    .then(({ data }) => data);
+};
 
-export const postUser = (
-         username,
-         avatar_url,
-         name
-       ) => {
-         return axios
-           .post(`${baseUrl}users`, { username, avatar_url, name })
-           .then(({ data }) => data);
-       };
+export const postUser = (username, avatar_url, name) => {
+  return axios
+    .post(`${baseUrl}users`, { username, avatar_url, name })
+    .then(({ data }) => data);
+};
