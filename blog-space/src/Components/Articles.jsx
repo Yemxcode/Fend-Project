@@ -1,13 +1,15 @@
 import React from "react";
 import * as api from "../Api";
 import ArticleList from './ArticleList'
+import SearchBar from "./SearchBar";
 
 export default class Articles extends React.Component {
   state = {
     user: "",
     isLoading: true,
     articles: [],
-    error: null
+    error: null,
+    query : {}
   };
 
   componentDidMount() {
@@ -22,12 +24,22 @@ export default class Articles extends React.Component {
       );
   }
 
+
+  searchArticle = (author, order, topic, sort_by) => {
+    this.setState({ query: { author, order, topic, sort_by } });
+  }
+
+
+  // componentDidUpdate(pP, pS) {
+  //   if Object.values(pS.query)
+  // }
   render() {
     const { isLoading, articles, error } = this.state;
     if (isLoading) return <h2>Loading ....</h2>;
     else 
     return (
     <>
+    <SearchBar searchArticle={this.searchArticle}/>
     <ArticleList articles={articles} />
     </>);
   }
