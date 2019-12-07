@@ -1,7 +1,8 @@
 import React from "react";
 import * as api from "../Api";
-import ArticleList from './ArticleList'
+import ArticleList from './ArticleList';
 import SearchBar from "./SearchBar";
+
 
 export default class Articles extends React.Component {
   state = {
@@ -15,7 +16,12 @@ export default class Articles extends React.Component {
 
   componentDidMount() {
     api
-      .getArticles()
+      .getArticles({
+        author: this.props.username,
+        order: null,
+        topic: null,
+        sort_by: null
+      })
       .then(({ articles }) => this.setState({ articles, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
@@ -61,7 +67,7 @@ export default class Articles extends React.Component {
     else 
     return (
     <>
-    <SearchBar topics={topics} searchArticle={this.searchArticle}/>
+    <SearchBar topics={topics} searchArticle={this.searchArticle} />
     <ArticleList articles={articles} />
     </>);
   }
