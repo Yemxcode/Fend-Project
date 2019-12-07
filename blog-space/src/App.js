@@ -6,6 +6,7 @@ import Layout from './Layouts/Layout'
 import NavigationBar from './Layouts/Navigation';
 import Jumbotron from './Layouts/Jumbotron'
 import Articles from './Components/Articles'
+import Users from './Components/Users'
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
      <Router>
        <Homepage path="/"/>
        <Articles path="/articles" />
+       <Users path="/users" />
+      
      </Router>
      </Layout>
     </>

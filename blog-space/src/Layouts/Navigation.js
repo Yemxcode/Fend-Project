@@ -28,7 +28,7 @@ export default function NavigationBar(){
            <Nav.Item>
              <Nav.Link href="/">Profile</Nav.Link>
              <Nav.Link href="/articles">Articles</Nav.Link>
-             <Nav.Link href="/">Users</Nav.Link>
+             <Nav.Link href="/users">Users</Nav.Link>
            </Nav.Item>
          </Nav>
        </Navbar.Collapse>
