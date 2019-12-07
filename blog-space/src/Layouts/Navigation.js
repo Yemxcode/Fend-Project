@@ -27,7 +27,7 @@ export default function NavigationBar(){
          <Nav className="m1-auto">
            <Nav.Item>
              <Nav.Link href="/">Profile</Nav.Link>
-             <Nav.Link href="/">Articles</Nav.Link>
+             <Nav.Link href="/articles">Articles</Nav.Link>
              <Nav.Link href="/">Users</Nav.Link>
            </Nav.Item>
          </Nav>

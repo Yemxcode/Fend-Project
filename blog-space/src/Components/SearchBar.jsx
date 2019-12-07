@@ -33,33 +33,26 @@ export default class SearchBar extends React.Component {
               noValidate
             />
           </label>
-          <label>
-            Topic:
-            <input
-              name="topic"
-              placeholder="topic"
-              value={topic || ""}
-              onChange={this.handleChange}
-              noValidate
-            />
-          </label>
+
+          <select onChange={this.handleChange} value={topic || ""} name="topic">
+            <option value={null}>Select Topic</option>
+            {this.props.topics.map(topic => (
+              <option key={topic.slug} value={topic.slug}>
+                {topic.slug}
+              </option>
+            ))}
+          </select>
           <select
             onChange={this.handleChange}
             value={sort_by || ""}
             name="sort_by"
-            noValidate
           >
             <option value={null}>Select Sort By</option>
             <option value="created_at">Date</option>
             <option value="comment_count">Comment Count</option>
             <option value="votes">Votes</option>
           </select>
-          <select
-            onChange={this.handleChange}
-            value={order || ""}
-            name="order"
-            noValidate
-          >
+          <select onChange={this.handleChange} value={order || ""} name="order">
             <option value={null}>Select Order By</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>

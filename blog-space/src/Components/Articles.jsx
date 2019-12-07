@@ -8,6 +8,7 @@ export default class Articles extends React.Component {
     user: "",
     isLoading: true,
     articles: [],
+    topics: [],
     error: null,
     query : {}
   };
@@ -22,6 +23,16 @@ export default class Articles extends React.Component {
           isLoading: false
         })
       );
+      api
+        .getTopics()
+        .then(({ topics }) => this.setState({ topics, isLoading: false }))
+        .catch(({ response }) =>
+          this.setState({
+            error: { status: response.status, msg: response.data },
+            isLoading: false
+          })
+        );
+
   }
 
 
@@ -33,13 +44,15 @@ export default class Articles extends React.Component {
   // componentDidUpdate(pP, pS) {
   //   if Object.values(pS.query)
   // }
+
+
   render() {
-    const { isLoading, articles, error } = this.state;
+    const { isLoading, articles, topics, error } = this.state;
     if (isLoading) return <h2>Loading ....</h2>;
     else 
     return (
     <>
-    <SearchBar searchArticle={this.searchArticle}/>
+    <SearchBar topics={topics} searchArticle={this.searchArticle}/>
     <ArticleList articles={articles} />
     </>);
   }
