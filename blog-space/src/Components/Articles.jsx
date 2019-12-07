@@ -41,9 +41,18 @@ export default class Articles extends React.Component {
   }
 
 
-  // componentDidUpdate(pP, pS) {
-  //   if Object.values(pS.query)
-  // }
+  componentDidUpdate(pP, pS) {
+    pS.query !== this.state.query &&
+      api
+        .getArticles(this.state.query)
+        .then(({ articles }) => this.setState({ articles, isLoading: false }))
+        .catch(({ response }) =>
+          this.setState({
+            error: { status: response.status, msg: response.data },
+            isLoading: false
+          })
+        );
+  }
 
 
   render() {

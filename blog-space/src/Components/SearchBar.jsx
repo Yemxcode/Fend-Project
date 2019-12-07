@@ -2,10 +2,10 @@ import React from "react";
 
 export default class SearchBar extends React.Component {
   state = {
-    author: "",
-    order: "",
-    topic: "",
-    sort_by: ""
+    author: null,
+    order: null,
+    topic: null,
+    sort_by: null
   };
 
   handleChange = event => {
