@@ -45,9 +45,9 @@ export const getTopics = () => {
   return axios.get(`${baseUrl}topics`).then(({ data }) => data);
 };
 
-export const patchVotes = (commentOrArticle, id, vote) => {
+export const patchVotes = (commentOrArticle, id, votes) => {
   return axios
-    .patch(`${baseUrl}${commentOrArticle}/${id}`, vote)
+    .patch(`${baseUrl}${commentOrArticle}/${id}`, votes)
     .then(({ data }) => data);
 };
 

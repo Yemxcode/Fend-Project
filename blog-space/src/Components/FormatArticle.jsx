@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from '@reach/router';
+import VoteButton from './VoteButton';
 
 
 export default function FormatArticle ({article}) {
@@ -26,6 +27,11 @@ export default function FormatArticle ({article}) {
        <section>Body: {body}</section>
        <section>Comments: {comment_count}</section>
      </article>
+     <VoteButton
+       commentOrArticle="articles"
+       id={article_id}
+       votes={votes}
+     />
    </>
  );
 }
