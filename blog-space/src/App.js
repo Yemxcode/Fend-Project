@@ -7,7 +7,9 @@ import NavigationBar from './Layouts/Navigation';
 import Jumbotron from './Layouts/Jumbotron';
 import Articles from './Components/Articles';
 import Users from './Components/Users';
-import SingleUser from './Components/SingleUser'
+import SingleUser from './Components/SingleUser';
+import SingleArticle from './Components/SingleArticle';
+
 function App() {
   return (
     <>
@@ -19,6 +21,7 @@ function App() {
        <Articles path="/articles" />
        <Users path="/users"/>
        <SingleUser path="/users/:username"/>
+       <SingleArticle path="/articles/:id"/>
      </Router>
      </Layout>
     </>
