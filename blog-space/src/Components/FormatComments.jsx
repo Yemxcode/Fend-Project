@@ -1,7 +1,7 @@
 import React from 'react';
 import VoteButton from './VoteButton';
-import DeleteComment from './DeleteComment';
-import {Link} from '@reach/router'
+import DeleteButton from './DeleteButton';
+import {Link} from '@reach/router';
 
 export default function FormatComments ({comments, username, error, deleteComment}){
  return (
@@ -19,10 +19,10 @@ export default function FormatComments ({comments, username, error, deleteCommen
            id={comment.comment_id}
          />
          {username === comment.author && (
-                <DeleteComment
+                <DeleteButton
                   error={error}
-                  deleteComment={deleteComment}
-                  comment_id={comment.comment_id}
+                  deleteFunc={deleteComment}
+                  id={comment.comment_id}
                 />
               )}
        </li>

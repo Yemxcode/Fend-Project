@@ -1,13 +1,13 @@
 import React from "react";
 import ErrorShower from "./ErrorShower";
 
-export default function DeleteComment({
-  comment_id,
-  deleteComment,
+export default function DeleteButton({
+  id,
+  deleteFunc,
   error
 }) {
   const handleClick = () => {
-    deleteComment(comment_id);
+    deleteFunc(id);
   };
 
   return (
