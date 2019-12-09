@@ -3,6 +3,7 @@ import * as api from "../Api";
 import { navigate } from "@reach/router";
 import SearchById from "./SearchById";
 import FormatArticle from './FormatArticle';
+import ArticleComments from "./ArticleComments";
 export default class SingleArtist extends React.Component {
   state = {
     isLoading: true,
@@ -46,6 +47,7 @@ export default class SingleArtist extends React.Component {
       <>
         <SearchById searchArticle={this.searchArticle} />
         <FormatArticle article={article} />
+        <ArticleComments id={this.props.id}/>
         
       </>
     );

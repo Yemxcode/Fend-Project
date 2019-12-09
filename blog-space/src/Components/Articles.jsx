@@ -62,7 +62,7 @@ export default class Articles extends React.Component {
 
 
   render() {
-    const { isLoading, articles, topics, error } = this.state;
+    const { isLoading, articles, topics} = this.state;
     if (isLoading) return <h2>Loading ....</h2>;
     else 
     return (

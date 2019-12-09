@@ -32,12 +32,7 @@ export default class Users extends React.Component {
         <ul>
           {users.map(user => (
             <li key={user.username}>
-              <span className="user">
                 <Link to={`/users/${user.username}`}>{user.username}</Link>
-              </span>{" "}
-              <span className="icon">
-                <i className="fas fa-user"></i>
-              </span>
             </li>
           ))}
         </ul>
