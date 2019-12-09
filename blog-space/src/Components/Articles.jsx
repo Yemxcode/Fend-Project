@@ -2,6 +2,7 @@ import React from "react";
 import * as api from "../Api";
 import ArticleList from './ArticleList';
 import SearchBar from "./SearchBar";
+import LoadingSpinner from './LoadingSpinner';
 
 
 export default class Articles extends React.Component {
@@ -25,8 +26,8 @@ export default class Articles extends React.Component {
       .then(({ articles }) => this.setState({ articles, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
-          error: { status: response.status, msg: response.data },
-          isLoading: false
+          error: { status: response.status, msg: response.data }
+          // isLoading: false
         })
       );
       api
@@ -35,7 +36,7 @@ export default class Articles extends React.Component {
         .catch(({ response }) =>
           this.setState({
             error: { status: response.status, msg: response.data },
-            isLoading: false
+            // isLoading: false
           })
         );
 
@@ -63,7 +64,7 @@ export default class Articles extends React.Component {
 
   render() {
     const { isLoading, articles, topics} = this.state;
-    if (isLoading) return <h2>Loading ....</h2>;
+    if (isLoading) return <LoadingSpinner/>
     else 
     return (
     <>
