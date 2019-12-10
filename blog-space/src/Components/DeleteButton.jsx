@@ -1,5 +1,7 @@
 import React from "react";
 import ErrorShower from "./ErrorShower";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function DeleteButton({
   id,
@@ -13,7 +15,9 @@ export default function DeleteButton({
   return (
     <>
       {error && <ErrorShower error={error} />}
-      <button onClick={handleClick}>Delete</button>
+      <button onClick={handleClick}>
+        Delete <FontAwesomeIcon icon={faTrash} />
+      </button>
     </>
   );
 }
