@@ -1,0 +1,22 @@
+.userUl {
+ position: relative;
+ width: 450px;
+ margin: 100px auto 0;
+ padding: 10px;
+}
+
+.userUl .userLi{
+ display: flex;
+ padding: 10px 20px;
+ background-color: rgb(240, 238, 238);
+ border: 1px solid rgb(131, 128, 128);
+ padding: 20px;
+ transition: .5s;
+}
+
+.userUl .userLi:hover{
+ transform: scale(1.06);
+ background-color: rgb(144, 141, 141)
+}
+
+

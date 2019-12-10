@@ -2,7 +2,9 @@ import React from "react";
 import * as api from "../Api";
 import { Link } from "@reach/router";
 import ErrorShower from "./ErrorShower";
-
+import '../Layouts/List.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default class Users extends React.Component {
   state = {
@@ -29,10 +31,11 @@ export default class Users extends React.Component {
     return (
       <div>
         <h2>Authors</h2>
-        <ul>
+        <ul className="userUl">
           {users.map(user => (
-            <li key={user.username}>
-                <Link to={`/users/${user.username}`}>{user.username}</Link>
+            <li className="userLi" key={user.username}>
+              <Link to={`/users/${user.username}`}>{user.username}</Link>
+              <FontAwesomeIcon icon={faUser} />
             </li>
           ))}
         </ul>
