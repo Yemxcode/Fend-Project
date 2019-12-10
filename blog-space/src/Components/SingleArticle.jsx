@@ -2,7 +2,7 @@ import React from "react";
 import * as api from "../Api";
 import { navigate } from "@reach/router";
 import SearchById from "./SearchById";
-import FormatArticle from './FormatArticle';
+import FormatArticle from "./FormatArticle";
 import ArticleComments from "./ArticleComments";
 export default class SingleArtist extends React.Component {
   state = {
@@ -10,7 +10,8 @@ export default class SingleArtist extends React.Component {
     isLoading: true,
     article: {},
     error: null,
-    notShow: false
+    notShow: false,
+    articleDeleted: false
   };
 
   componentDidMount() {
@@ -20,8 +21,7 @@ export default class SingleArtist extends React.Component {
       .catch(({ response }) =>
         this.setState({
           error: { msg: response.data },
-          isLoading: false,
-          articleDeleted: false
+          isLoading: false
         })
       );
   }
@@ -43,35 +43,50 @@ export default class SingleArtist extends React.Component {
         );
   }
 
-  deleteArticle = (id) => {
+  deleteArticle = id => {
     api
       .deleteArticleById(id)
       .then(() => this.setState({ articleDeleted: true, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
-          error: { msg: "Unfortunately unable to delete article, please try again later" },
+          error: {
+            msg:
+              "Unfortunately unable to delete article, please try again later"
+          },
           isLoading: false
         })
       );
-  }
+  };
 
   render() {
-   const {isLoading, article, error, notShow, username, articleDeleted} = this.state;
-   let showLabel = notShow ? "Show Comments" : "Hide Comments";
-   if (isLoading) return (<h2> Loading....</h2>)
-   if (articleDeleted) return (<h2>Article Deleted</h2>) 
-   else 
-    return (
-      <>
-        <SearchById searchArticle={this.searchArticle} />
-        <FormatArticle username={username} error={error} article={article} deleteArticle={this.deleteArticle}/>
-        {!error && (
-          <button onClick={() => this.setState({ notShow: !notShow })}>
-            {showLabel}
-          </button>
-        )}
-        {!notShow && <ArticleComments id={this.props.id} />}
-      </>
-    );
+    const {
+      isLoading,
+      article,
+      error,
+      notShow,
+      username,
+      articleDeleted
+    } = this.state;
+    let showLabel = notShow ? "Show Comments" : "Hide Comments";
+    if (isLoading) return <h2> Loading....</h2>;
+    if (articleDeleted) return <h2>Article Deleted</h2>;
+    else
+      return (
+        <>
+          <SearchById searchArticle={this.searchArticle} />
+          {<FormatArticle
+            username={username}
+            error={error}
+            article={article}
+            deleteArticle={this.deleteArticle}
+          />}
+          {!error && (
+            <button onClick={() => this.setState({ notShow: !notShow })}>
+              {showLabel}
+            </button>
+          )}
+          {!notShow && <ArticleComments id={this.props.id} />}
+        </>
+      );
   }
 }
