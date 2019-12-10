@@ -49,7 +49,7 @@ export default class Articles extends React.Component {
                    if (pS.query !== this.state.query) /// need to fix this component did update!!!
                      api
                        .getArticles(this.state.query)
-                       .then(({ articles }) => { return this.setState({ articles, isLoading: false }); navigate(`/articles/${this.state.query.topic}`)})
+                       .then(({ articles }) => { return this.setState({ articles, isLoading: false }); navigate(`/articles/${this.state.query.topic}`)}) //need to figure out how to make this work!!
                        .catch(({ response }) =>
                          this.setState({
                            error: { status: response.status, msg: response.data },

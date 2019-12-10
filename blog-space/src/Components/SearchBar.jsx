@@ -1,18 +1,23 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 export default class SearchBar extends React.Component {
   state = {
-    author: "",
-    order: "",
-    topic: "",
-    sort_by: ""
+    author: null,
+    order: null,
+    topic: null,
+    sort_by: null
   };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+  changeTopic = (topic) => {
+    this.setState({topic})
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -34,7 +39,6 @@ export default class SearchBar extends React.Component {
               noValidate
             />
           </label>
-
           <select onChange={this.handleChange} value={topic || ""} name="topic">
             <option value={null}>Select Topic</option>
             {this.props.topics.map(topic => (
