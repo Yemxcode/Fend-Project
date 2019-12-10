@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faComment } from "@fortawesome/free-solid-svg-icons";
 export default class CommentsForm extends React.Component {
   state = {
     body: ""
@@ -29,7 +30,10 @@ export default class CommentsForm extends React.Component {
             onChange={this.handleChange}
             placeholder="type comments"
           ></textarea>
-          <button>Post</button>
+          <button>
+            Post
+            <FontAwesomeIcon icon={faComment} />
+          </button>
         </form>
       </>
     );
