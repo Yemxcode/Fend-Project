@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export default class SearchBar extends React.Component {
   state = {
     author: null,
@@ -57,7 +58,9 @@ export default class SearchBar extends React.Component {
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
-          <button>Search</button>
+          <button>
+            Search <FontAwesomeIcon icon={faSearch} />
+          </button>
         </form>
       </>
     );
