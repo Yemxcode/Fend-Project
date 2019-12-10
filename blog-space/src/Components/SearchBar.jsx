@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export default class SearchBar extends React.Component {
   state = {
-    author: null,
-    order: null,
-    topic: null,
-    sort_by: null
+    author: "",
+    order: "",
+    topic: "",
+    sort_by: ""
   };
 
   handleChange = event => {
