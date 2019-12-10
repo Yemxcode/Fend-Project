@@ -2,7 +2,12 @@ import React from "react";
 import * as api from "../Api";
 import { Link } from "@reach/router";
 import ErrorShower from "./ErrorShower";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHamburger,
+  faCode,
+  faFutbol
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class SingleUser extends React.Component {
   state = {
@@ -57,9 +62,19 @@ export default class SingleUser extends React.Component {
                 <Link to={`/articles/id/${article.article_id}`}>
                   {article.title}
                 </Link>
+                |
+                {article.topic === "cooking" && (
+                  <FontAwesomeIcon icon={faHamburger} />
+                )}
+                {article.topic === "football" && (
+                  <FontAwesomeIcon icon={faFutbol} />
+                )}
+                {article.topic === "coding" && (
+                  <FontAwesomeIcon icon={faCode} />
+                )}
               </li>
             ))}
-          </ul> 
+          </ul>
         </section>
       </>
     );
