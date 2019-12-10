@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default class SearchById extends React.Component {
   state = {
@@ -18,17 +20,20 @@ export default class SearchById extends React.Component {
   render() {
     const { id } = this.state;
     return (
-      <form name="search" onSubmit={this.handleSubmit} >
-        <label>Search By ID:
-        <input
-          name="id"
-          type="number"
-          placeholder="Article ID"
-          onChange={this.handleChange}
-          value={id}
-        />
+      <form name="search" onSubmit={this.handleSubmit}>
+        <label>
+          Search By ID:
+          <input
+            name="id"
+            type="number"
+            placeholder="Article ID"
+            onChange={this.handleChange}
+            value={id}
+          />
         </label>
-        <button>Submit</button>
+        <button type="submit">
+          Search <FontAwesomeIcon icon={faSearch} />
+        </button>
       </form>
     );
   }
