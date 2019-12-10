@@ -19,4 +19,8 @@
  background-color: rgb(144, 141, 141)
 }
 
+.userSpan {
+ display: flex;
+ justify-content: right;
+}
 

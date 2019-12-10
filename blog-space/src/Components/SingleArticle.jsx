@@ -27,7 +27,7 @@ export default class SingleArtist extends React.Component {
   }
 
   searchArticle = id => {
-    navigate(`/articles/${id}`);
+    navigate(`/articles/id/${id}`);
   };
 
   componentDidUpdate(prevProps) {
