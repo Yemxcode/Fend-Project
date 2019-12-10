@@ -9,36 +9,24 @@ export default class VoteButton extends React.Component {
   };
 
   handleClick = event => {
-    const { name, value } = event.target;
-    const { inc_votes } = this.state;
-    if (inc_votes === 0)
+    let { name, value } = event.target; 
+    const votes = {inc_votes: value}
       this.setState(currentState => {
         return { [name]: currentState[name] + +value };
       });
-    else {
-      this.setState(currentState => {
-        return { [name]: currentState[name] + +(value * 2) };
-      });
-    }
+   api
+     .patchVotes(this.props.commentOrArticle, this.props.id, votes)
+     .catch(({ response }) =>
+       this.setState({
+         error: {
+           msg:
+             "Error! Sorry cannot process your vote, please try again later ;/"
+         },
+         isLoading: false,
+         inc_votes: 0
+       })
+     );
   };
-  componentDidUpdate (pP, pS){
-   const { inc_votes } = this.state;
-   const votes = {inc_votes}
-   pS.in !== this.state.inc_votes &&
-     api
-       .patchVotes(this.props.commentOrArticle, this.props.id, votes)
-       .catch(({ response }) =>
-         this.setState({
-           error: {
-             msg:
-               "Error! Sorry cannot process your vote, please try again later ;/"
-           },
-           isLoading: false,
-           inc_votes: 0
-         })
-       );
-
-    }
 
   render() {
     const { inc_votes, error } = this.state;
