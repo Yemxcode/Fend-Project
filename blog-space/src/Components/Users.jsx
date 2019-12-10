@@ -29,17 +29,17 @@ export default class Users extends React.Component {
     if (error) return <ErrorShower error={error} />;
     if (isLoading) return <h2>Loading ...</h2>;
     return (
-      <div>
+      <ul className="Ul">
         <h2>Authors</h2>
-        <ul className="userUl">
-          {users.map(user => (
-            <li className="userLi" key={user.username}>
-              <Link to={`/users/${user.username}`}>{user.username}</Link>
-              <span className="userSpan"><FontAwesomeIcon icon={faUser} /></span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        {users.map(user => (
+          <li className="Li" key={user.username}>
+            <Link to={`/users/${user.username}`}>{user.username}</Link>
+            <span className="userSpan">
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+          </li>
+        ))}
+      </ul>
     );
   }
 }

@@ -1,11 +1,11 @@
-.userUl {
+.Ul {
  position: relative;
  width: 450px;
  margin: 100px auto 0;
  padding: 10px;
 }
 
-.userUl .userLi{
+.Ul .Li{
  display: flex;
  padding: 10px 20px;
  background-color: rgb(240, 238, 238);
@@ -14,7 +14,7 @@
  transition: .5s;
 }
 
-.userUl .userLi:hover{
+.Ul .Li:hover{
  transform: scale(1.06);
  background-color: rgb(144, 141, 141)
 }

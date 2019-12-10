@@ -7,9 +7,11 @@ export default function ArticleList({ articles }) {
  if (!articles.length) return <h3>No results found :/</h3>
  else
   return (
-    <ul>
+    
+    <ul className="Ul">
+      <h2>Articles</h2>
       {articles.map(article => (
-        <li key={article.article_id}>
+        <li className="Li" key={article.article_id}>
           <Link to={`/articles/id/${article.article_id}`}>{article.title}</Link>
           |
           {article.topic === "cooking" && (

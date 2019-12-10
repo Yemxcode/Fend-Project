@@ -51,13 +51,13 @@ export default class SingleUser extends React.Component {
     return (
       <>
         <section>
-          <p>username: {user.username}</p>
-          <p>name: {user.name}</p>
+          <h2>Username: {user.username}</h2>
+          <h2>Name: {user.name}</h2>
           <img src={user.avatar_url} alt="chosen profile avatar"></img>
-          <ul>
-            Articles:
+          <ul className="Ul">
+            <h3>Articles</h3>
             {articles.map(article => (
-              <li key={article.article_id}>
+              <li className="Li" key={article.article_id}>
                 {" "}
                 <Link to={`/articles/id/${article.article_id}`}>
                   {article.title}
