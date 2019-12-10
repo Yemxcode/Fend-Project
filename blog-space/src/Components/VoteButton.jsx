@@ -1,7 +1,8 @@
 import React from "react";
 import * as api from "../Api";
 import ErrorShower from "./ErrorShower";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 export default class VoteButton extends React.Component {
   state = {
     inc_votes: 0,
@@ -41,6 +42,7 @@ export default class VoteButton extends React.Component {
           onClick={this.handleClick}
         >
           Like
+          <FontAwesomeIcon icon={faThumbsUp} />
         </button>
         <button
           name="inc_votes"
@@ -48,7 +50,7 @@ export default class VoteButton extends React.Component {
           value={-1}
           onClick={this.handleClick}
         >
-          Dislike
+          Dislike <FontAwesomeIcon icon={faThumbsDown} />
         </button>
       </>
     );
