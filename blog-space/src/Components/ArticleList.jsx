@@ -7,7 +7,7 @@ export default function ArticleList({ articles }) {
     <ul>
       {articles.map(article => (
         <li key={article.article_id}>
-          <Link to={`/articles/${article.article_id}`}>
+          <Link to={`/articles/id/${article.article_id}`}>
             {article.title}
           </Link>
         </li>

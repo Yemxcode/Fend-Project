@@ -3,6 +3,7 @@ import * as api from "../Api";
 import ArticleList from './ArticleList';
 import SearchBar from "./SearchBar";
 import LoadingSpinner from './LoadingSpinner';
+import {navigate} from '@reach/router';
 
 
 export default class Articles extends React.Component {
@@ -18,16 +19,12 @@ export default class Articles extends React.Component {
   componentDidMount() {
     api
       .getArticles({
-        author: this.props.username,
-        order: null,
-        topic: null,
-        sort_by: null
+        topic: this.props.topic
       })
       .then(({ articles }) => this.setState({ articles, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status, msg: response.data }
-          // isLoading: false
         })
       );
       api
@@ -35,8 +32,7 @@ export default class Articles extends React.Component {
         .then(({ topics }) => this.setState({ topics, isLoading: false }))
         .catch(({ response }) =>
           this.setState({
-            error: { status: response.status, msg: response.data },
-            // isLoading: false
+            error: { status: response.status, msg: response.data }
           })
         );
 
@@ -49,8 +45,8 @@ export default class Articles extends React.Component {
 
 
   componentDidUpdate(pP, pS) {
-    pS.query !== this.state.query &&
-      api
+    if (pS.query !== this.state.query) 
+      {api
         .getArticles(this.state.query)
         .then(({ articles }) => this.setState({ articles, isLoading: false }))
         .catch(({ response }) =>
@@ -59,6 +55,7 @@ export default class Articles extends React.Component {
             isLoading: false
           })
         );
+        navigate(`/articles/${this.state.query.topic}`);}
   }
 
 

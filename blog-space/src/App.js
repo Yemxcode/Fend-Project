@@ -19,9 +19,10 @@ function App() {
      <Router>
        <Homepage path="/"/>
        <Articles path="/articles" />
+       <Articles path="articles/:topic"/>
        <Users path="/users"/>
        <SingleUser path="/users/:username"/>
-       <SingleArticle path="/articles/:id"/>
+       <SingleArticle path="/articles/id/:id"/>
      </Router>
      </Layout>
     </>
