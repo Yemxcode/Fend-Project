@@ -59,10 +59,10 @@ export default class SingleUser extends React.Component {
             {articles.map(article => (
               <li className="Li" key={article.article_id}>
                 {" "}
-                <Link to={`/articles/id/${article.article_id}`}>
+                <section className="user_articles"><Link to={`/articles/id/${article.article_id}`}>
                   {article.title}
-                </Link>
-                |
+                </Link></section>
+                <div className="icon">
                 {article.topic === "cooking" && (
                   <FontAwesomeIcon icon={faHamburger} />
                 )}
@@ -71,7 +71,7 @@ export default class SingleUser extends React.Component {
                 )}
                 {article.topic === "coding" && (
                   <FontAwesomeIcon icon={faCode} />
-                )}
+                )}</div>
               </li>
             ))}
           </ul>

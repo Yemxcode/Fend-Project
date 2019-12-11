@@ -11,13 +11,17 @@ export default function ArticleList({ articles }) {
       <h2>Articles</h2>
       {articles.map(article => (
         <li className="Li" key={article.article_id}>
-          <Link to={`/articles/id/${article.article_id}`}>{article.title}</Link>
-         <p>Created: {article.created_at}</p>  <p>Likes: {article.votes}</p>
-          {article.topic === "cooking" && (
-            <FontAwesomeIcon icon={faHamburger} />
-          )}
-          {article.topic === "football" && <FontAwesomeIcon icon={faFutbol} />}
-          {article.topic === "coding" && <FontAwesomeIcon icon={faCode} />}
+          <section className="article_Title"><Link to={`/articles/id/${article.article_id}`}>{article.title}</Link></section>
+          <section className="timeLikes"><p>Created: {article.created_at}</p> <p>Likes: {article.votes}</p></section>
+          <div className="icon">
+            {article.topic === "cooking" && (
+              <FontAwesomeIcon icon={faHamburger} />
+            )}
+            {article.topic === "football" && (
+              <FontAwesomeIcon icon={faFutbol} />
+            )}
+            {article.topic === "coding" && <FontAwesomeIcon icon={faCode} />}{" "}
+          </div>
         </li>
       ))}
     </ul>
