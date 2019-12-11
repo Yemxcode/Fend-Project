@@ -2,7 +2,7 @@ import React from "react";
 import * as api from "../Api";
 import { Link } from "@reach/router";
 import ErrorShower from "./ErrorShower";
-import '../Layouts/List.css'
+import '../Layouts/Main.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 

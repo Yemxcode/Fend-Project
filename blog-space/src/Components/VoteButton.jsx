@@ -3,6 +3,7 @@ import * as api from "../Api";
 import ErrorShower from "./ErrorShower";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import '../Layouts/Main.css';
 export default class VoteButton extends React.Component {
   state = {
     inc_votes: 0,
@@ -32,10 +33,11 @@ export default class VoteButton extends React.Component {
   render() {
     const { inc_votes, error } = this.state;
     return (
-      <>
+      <div className="btn_container">
         <section>Votes: {inc_votes + this.props.votes}</section>
         {error && <ErrorShower error={error} />}
         <button
+          className="btn_like"
           name="inc_votes"
           disabled={inc_votes === 1 ? true : false}
           value={1}
@@ -45,6 +47,7 @@ export default class VoteButton extends React.Component {
           <FontAwesomeIcon icon={faThumbsUp} />
         </button>
         <button
+          className="btn_dislike"
           name="inc_votes"
           disabled={inc_votes === -1 ? true : false}
           value={-1}
@@ -52,7 +55,7 @@ export default class VoteButton extends React.Component {
         >
           Dislike <FontAwesomeIcon icon={faThumbsDown} />
         </button>
-      </>
+      </div>
     );
   }
 }

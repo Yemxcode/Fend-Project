@@ -97,3 +97,21 @@ body {
  background-color: #333;
  color: #fff;
 }
+
+
+/* .comments {
+ width: 1000px;
+ position : absolute;
+ display: grid;
+ justify-content: relative;
+ align-items: center;
+ z-index: 1;
+ transform: translateY(100px);
+ border: 20px solid black;
+
+} */
+
+/* .comment {
+ position: relative;
+} */
+

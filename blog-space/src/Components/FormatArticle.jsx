@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from '@reach/router';
 import VoteButton from './VoteButton';
 import DeleteButton from './DeleteButton'
-import '../Layouts/ArticleCard.css'
+import '../Layouts/Main.css'
 
 
 

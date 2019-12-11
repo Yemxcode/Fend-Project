@@ -2,7 +2,7 @@ import React from "react";
 import ErrorShower from "./ErrorShower";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
+import "../Layouts/Main.css";
 export default function DeleteButton({
   id,
   deleteFunc,
@@ -13,11 +13,11 @@ export default function DeleteButton({
   };
 
   return (
-    <>
+    <div className="delete_container">
       {error && <ErrorShower error={error} />}
-      <button onClick={handleClick}>
+      <button className="btn_delete" onClick={handleClick}>
         Delete <FontAwesomeIcon icon={faTrash} />
       </button>
-    </>
+    </div>
   );
 }
