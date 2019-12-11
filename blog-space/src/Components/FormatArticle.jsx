@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from '@reach/router';
 import VoteButton from './VoteButton';
 import DeleteButton from './DeleteButton'
+import '../Layouts/ArticleCard.css'
 
 
 
@@ -18,7 +19,7 @@ export default function FormatArticle ({article, username, error, deleteArticle}
  } = article;
  return (
    <>
-     <article>
+     <article className="infobox">
        <h3>
          <Link to={`/users/${author}`}>Author: {author}</Link>
        </h3>
@@ -28,13 +29,14 @@ export default function FormatArticle ({article, username, error, deleteArticle}
        <section>Title: {title}</section>
        <section>Body: {body}</section>
        <section>Comments: {comment_count}</section>
-     </article>
+    
      {username === author && <DeleteButton error={error} id={article_id} deleteFunc={deleteArticle} />}
      <VoteButton
        commentOrArticle="articles"
        id={article_id}
-       votes={votes}
+       votes={votes} 
      />
+    </article>
    </>
  );
 }
