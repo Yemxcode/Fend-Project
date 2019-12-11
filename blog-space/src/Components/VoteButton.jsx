@@ -18,13 +18,13 @@ export default class VoteButton extends React.Component {
    api
      .patchVotes(this.props.commentOrArticle, this.props.id, votes)
      .catch(({ response }) =>
-       this.setState({
-         error: {
+       this.setState((currentState) =>{
+         return {error: {
            msg:
              "Error! Sorry cannot process your vote, please try again later ;/"
          },
          isLoading: false,
-         inc_votes: 0
+         [name]: currentState[name] - value}
        })
      );
   };
