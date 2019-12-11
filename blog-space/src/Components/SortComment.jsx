@@ -8,7 +8,7 @@ export default class SortComment extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    value.length && this.setState({ [name]: value });
   };
 
   handleSubmit = event => {
@@ -25,7 +25,7 @@ export default class SortComment extends React.Component {
           value={sort_by || ""}
           name="sort_by"
         >
-          <option value={null}>Select Sort By</option>
+          <option value={""}>Select Sort By</option>
           <option value="author">Author</option>
           <option value="created_at">Date</option>
           <option value="votes">Votes</option>
@@ -35,7 +35,7 @@ export default class SortComment extends React.Component {
           value={order || ""}
           name="order"
         >
-          <option value={null}>Select Order By</option>
+          <option value={""}>Select Order By</option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
