@@ -13,7 +13,6 @@ export default class Articles extends React.Component {
                    articles: [],
                    topics: [],
                    error: null,
-                   query: {}
                  };
 
                  componentDidMount() {
@@ -42,22 +41,20 @@ export default class Articles extends React.Component {
                  }
 
                  searchArticle = (author, order, topic, sort_by) => {
-                   this.setState({ query: { author, order, topic, sort_by } });
+              
+                  api
+                    .getArticles({ author, order, topic, sort_by })
+                    .then(({ articles }) =>
+                      this.setState({ articles, isLoading: false })
+                    )
+                    .catch(({ response }) =>
+                      this.setState({
+                        error: { status: response.status, msg: response.data },
+                        isLoading: false
+                      })
+                    );
+                    navigate(`/articles/${topic}`);
                  };
-
-                 componentDidUpdate(pP, pS) {
-                   if (pS.query !== this.state.query) /// need to fix this component did update!!!
-                     api
-                       .getArticles(this.state.query)
-                       .then(({ articles }) => { return this.setState({ articles, isLoading: false }); navigate(`/articles/${this.state.query.topic}`)}) //need to figure out how to make this work!!
-                       .catch(({ response }) =>
-                         this.setState({
-                           error: { status: response.status, msg: response.data },
-                           isLoading: false
-                         })
-                       );
-                       
-                 }
 
                  render() {
                    const { isLoading, articles, topics } = this.state;

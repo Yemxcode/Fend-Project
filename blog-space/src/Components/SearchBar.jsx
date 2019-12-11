@@ -6,7 +6,7 @@ export default class SearchBar extends React.Component {
   state = {
     author: null,
     order: null,
-    topic: null,
+    topic: "",
     sort_by: null
   };
 
