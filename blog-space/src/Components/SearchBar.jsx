@@ -12,17 +12,19 @@ export default class SearchBar extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    value.length && this.setState({ [name]: value });
   };
 
-  changeTopic = (topic) => {
-    this.setState({topic})
-  }
+  changeTopic = topic => {
+    this.setState({ topic });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
     const { author, order, topic, sort_by } = this.state;
-    this.props.searchArticle(author, order, topic, sort_by);
+    if (author || order || topic.length || sort_by) {
+      this.props.searchArticle(author, order, topic, sort_by);
+    }
   };
   render() {
     const { author, order, topic, sort_by } = this.state;
@@ -40,7 +42,7 @@ export default class SearchBar extends React.Component {
             />
           </label>
           <select onChange={this.handleChange} value={topic || ""} name="topic">
-            <option value={null}>Select Topic</option>
+            <option value="">Select Topic</option>
             {this.props.topics.map(topic => (
               <option key={topic.slug} value={topic.slug}>
                 {topic.slug}
@@ -52,13 +54,13 @@ export default class SearchBar extends React.Component {
             value={sort_by || ""}
             name="sort_by"
           >
-            <option value={null}>Select Sort By</option>
+            <option value="">Select Sort By</option>
             <option value="created_at">Date</option>
             <option value="comment_count">Comment Count</option>
             <option value="votes">Votes</option>
           </select>
           <select onChange={this.handleChange} value={order || ""} name="order">
-            <option value={null}>Select Order By</option>
+            <option value="">Select Order By</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
