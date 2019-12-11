@@ -26,8 +26,10 @@ Paths:
 "/articles" - "/articles/:id"
 
 
-
-
+-change link colours to grey
+-Loading wheel bootstrap component
+- Data visualization to articles page.
+- Change profile pictures!
 - If search but no error, empty array send "no results found"
 -How to remove the "&" from the first query Url -> perhaps form request action extraction
 -search bar should be a class component and pass the state back on a function passed down and the query object can be passed to the api request
