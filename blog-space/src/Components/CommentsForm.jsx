@@ -13,7 +13,7 @@ export default class CommentsForm extends React.Component {
 
   handleSubmit = event => {
    event.preventDefault();
-   this.props.postBody(this.state.body)
+   this.state.body.length && this.props.postBody(this.state.body)
    this.setState({body : ""})
   }
 
@@ -28,6 +28,7 @@ export default class CommentsForm extends React.Component {
             type="text"
             value={body}
             onChange={this.handleChange}
+            required
             placeholder="type comments"
           ></textarea>
           <button>
