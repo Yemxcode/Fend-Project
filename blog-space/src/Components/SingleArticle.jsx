@@ -4,6 +4,8 @@ import { navigate } from "@reach/router";
 import SearchById from "./SearchById";
 import FormatArticle from "./FormatArticle";
 import ArticleComments from "./ArticleComments";
+import LoadSearch from "./LoadSearch";
+
 export default class SingleArtist extends React.Component {
   state = {
     username: "tickle122",
@@ -68,7 +70,7 @@ export default class SingleArtist extends React.Component {
       articleDeleted
     } = this.state;
     let showLabel = notShow ? "Show Comments" : "Hide Comments";
-    if (isLoading) return <h2> Loading....</h2>;
+    if (isLoading) return <LoadSearch />;
     if (articleDeleted) return <h2>Article Deleted</h2>;
     else
       return (

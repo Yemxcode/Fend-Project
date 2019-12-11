@@ -3,6 +3,7 @@ import * as api from "../Api";
 import CommentsForm from "./CommentsForm";
 import SortComment from "./SortComment";
 import FormatComments from "./FormatComments";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default class ArticleComments extends React.Component {
   state = {
@@ -80,7 +81,7 @@ export default class ArticleComments extends React.Component {
 
   render() {
     const { comments, isLoading, username, error } = this.state;
-    if (isLoading) return <h2> Loading... </h2>;
+    if (isLoading) return <LoadingSpinner/>;
     return (
       <div>
         <CommentsForm postBody={this.postBody} />

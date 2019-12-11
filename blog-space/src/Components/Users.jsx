@@ -5,7 +5,7 @@ import ErrorShower from "./ErrorShower";
 import '../Layouts/Main.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-
+import LoadingSpinner from "./LoadingSpinner";
 export default class Users extends React.Component {
   state = {
     isLoading: true,
@@ -27,7 +27,7 @@ export default class Users extends React.Component {
   render() {
     const { users, isLoading, error } = this.state;
     if (error) return <ErrorShower error={error} />;
-    if (isLoading) return <h2>Loading ...</h2>;
+    if (isLoading) return <LoadingSpinner />;
     return (
       <ul className="Ul">
         <h2>Authors</h2>

@@ -4,6 +4,7 @@ import ArticleList from "./ArticleList";
 import SearchBar from "./SearchBar";
 import LoadingSpinner from "./LoadingSpinner";
 import { navigate } from "@reach/router";
+import LoadSearch from "./LoadSearch";
 
 export default class Articles extends React.Component {
   state = {
@@ -50,7 +51,7 @@ export default class Articles extends React.Component {
 
   render() {
     const { isLoading, articles, topics } = this.state;
-    if (isLoading) return <LoadingSpinner />;
+    if (isLoading) return <LoadSearch />;
     else
       return (
         <>

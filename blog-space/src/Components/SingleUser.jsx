@@ -8,6 +8,7 @@ import {
   faCode,
   faFutbol
 } from "@fortawesome/free-solid-svg-icons";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default class SingleUser extends React.Component {
   state = {
@@ -47,7 +48,7 @@ export default class SingleUser extends React.Component {
     const { isLoading, user, articles, error } = this.state;
 
     if (error) return <ErrorShower error={error} />;
-    if (isLoading) return <h2>Loading ...</h2>;
+    if (isLoading) return <LoadingSpinner />;
     return (
       <>
         <section>
@@ -59,19 +60,22 @@ export default class SingleUser extends React.Component {
             {articles.map(article => (
               <li className="Li" key={article.article_id}>
                 {" "}
-                <section className="user_articles"><Link to={`/articles/id/${article.article_id}`}>
-                  {article.title}
-                </Link></section>
+                <section className="user_articles">
+                  <Link to={`/articles/id/${article.article_id}`}>
+                    {article.title}
+                  </Link>
+                </section>
                 <div className="icon">
-                {article.topic === "cooking" && (
-                  <FontAwesomeIcon icon={faHamburger} />
-                )}
-                {article.topic === "football" && (
-                  <FontAwesomeIcon icon={faFutbol} />
-                )}
-                {article.topic === "coding" && (
-                  <FontAwesomeIcon icon={faCode} />
-                )}</div>
+                  {article.topic === "cooking" && (
+                    <FontAwesomeIcon icon={faHamburger} />
+                  )}
+                  {article.topic === "football" && (
+                    <FontAwesomeIcon icon={faFutbol} />
+                  )}
+                  {article.topic === "coding" && (
+                    <FontAwesomeIcon icon={faCode} />
+                  )}
+                </div>
               </li>
             ))}
           </ul>
