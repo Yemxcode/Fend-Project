@@ -9,10 +9,14 @@ import Articles from './Components/Articles';
 import Users from './Components/Users';
 import SingleUser from './Components/SingleUser';
 import SingleArticle from './Components/SingleArticle';
+import MyContext from './MyContext';
+
+import LogInPage from './Components/LogInPage'
 
 function App() {
   return (
     <>
+    <MyContext>
       <NavigationBar/>
       <Jumbotron/>
       <Layout>
@@ -23,8 +27,10 @@ function App() {
        <Users path="/users"/>
        <SingleUser path="/users/:username"/>
        <SingleArticle path="/articles/id/:id"/>
+        <LogInPage path="/login"/>
      </Router>
      </Layout>
+     </MyContext>
     </>
   );
 }
