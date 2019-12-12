@@ -3,7 +3,7 @@ import {Link} from "@reach/router";
 import TopicCard from './TopicCard';
 
 
-export default function  Homepage  ({Context})  {
+export default function  Homepage  ()  {
  
  return (
   <div>

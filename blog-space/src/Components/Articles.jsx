@@ -9,7 +9,6 @@ import ErrorDisplay from "./ErrorDisplay";
 
 export default class Articles extends React.Component {
   state = {
-    user: "",
     isLoading: true,
     articles: [],
     topics: [],
