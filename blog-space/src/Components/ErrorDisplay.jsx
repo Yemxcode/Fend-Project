@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function ErrorDisplay({ error }) {
+  console.log(error)
   const { status, msg } = error;
 
   return (

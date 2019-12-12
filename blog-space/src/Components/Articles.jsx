@@ -2,9 +2,10 @@ import React from "react";
 import * as api from "../Api";
 import ArticleList from "./ArticleList";
 import SearchBar from "./SearchBar";
-import LoadingSpinner from "./LoadingSpinner";
 import { navigate } from "@reach/router";
 import LoadSearch from "./LoadSearch";
+import ErrorDisplay from "./ErrorDisplay";
+
 
 export default class Articles extends React.Component {
   state = {
@@ -23,7 +24,7 @@ export default class Articles extends React.Component {
       .then(({ articles }) => this.setState({ articles, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
-          error: { status: response.status, msg: response.data }
+          error: { status: response.status || 404, msg: response.data }
         })
       );
     api
@@ -50,13 +51,14 @@ export default class Articles extends React.Component {
   };
 
   render() {
-    const { isLoading, articles, topics } = this.state;
+    const { isLoading, articles, topics, error } = this.state;
     if (isLoading) return <LoadSearch />;
     else
       return (
         <>
           <SearchBar topics={topics} searchArticle={this.searchArticle} />
-          <ArticleList articles={articles} />
+          
+          {error ? <ErrorDisplay error={error}/> :<ArticleList articles={articles} />}
         </>
       );
   }

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger, faCode, faFutbol} from "@fortawesome/free-solid-svg-icons";
 
 export default function ArticleList({ articles }) {
- if (!articles.length) return <h3>No results found :/</h3>
+ if (!articles.length) return <h3>chosen author does not have an article with the chosen topic :/</h3>
  else
   return (
     <ul className="Ul">
