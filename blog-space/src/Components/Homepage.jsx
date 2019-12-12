@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "@reach/router";
-// import TopicCard from './TopicCard';
+import TopicCard from './TopicCard';
 
 
 export default function  Homepage  ({Context})  {
@@ -9,7 +9,7 @@ export default function  Homepage  ({Context})  {
   <div>
     <button><Link to="/sign_up">Sign Up</Link></button>
     <button><Link to="/articles">Browse</Link></button>
-    {/* <TopicCard /> */}
+    <TopicCard />
   </div>
  )
  

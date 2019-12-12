@@ -5,7 +5,7 @@ import '../Layouts/TopicCard.css'
 
 export default function TopicCard () {
  return (
-   <div className="container">
+   <div className="containerT">
      <div className="card">
        <div className="face face1">
          <div className="content">
