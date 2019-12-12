@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ErrorShower({ error }) {
+export default function ErrorDisplay({ error }) {
   const { status, msg } = error;
 
   return (

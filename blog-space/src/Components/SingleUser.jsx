@@ -1,7 +1,7 @@
 import React from "react";
 import * as api from "../Api";
 import { Link } from "@reach/router";
-import ErrorShower from "./ErrorShower";
+import ErrorShower from "./ErrorDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHamburger,

@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorShower from "./ErrorShower";
+import ErrorShower from "./ErrorDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../Layouts/Main.css";

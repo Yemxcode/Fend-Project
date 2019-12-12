@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../Api";
-import ErrorShower from "./ErrorShower";
+import ErrorShower from "./ErrorDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import '../Layouts/Main.css';
