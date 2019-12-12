@@ -5,7 +5,7 @@ export const Context = React.createContext();
 
 export default class MyContext extends React.Component {
  state = {
-  loggedInAs: ''
+  loggedInAs: null
  }
  
  
@@ -28,18 +28,5 @@ export default class MyContext extends React.Component {
 }
 
 
-// import React, { useState, createContext } from 'react';
 
 
-// export const Context = React.createContext();
-
-// export const MyContext = props => {
-//   const [user, setUser] = useState([{ username: '' }]);
-
-
-//   return (
-//     <Context.Provider value={[user, setUser]}>
-//       {props.children}
-//     </Context.Provider>
-//   )
-// }

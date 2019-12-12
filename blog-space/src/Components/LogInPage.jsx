@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalBody, ModalFooter } from "reactstrap";
 import { Button } from "react-bootstrap";
 import { Context } from "../MyContext";
 
@@ -39,12 +39,12 @@ export default class LoginPage extends React.Component {
                 onSubmit={e => {
                   e.preventDefault();
                   context.logIn(user);
-                  this.setState({open: false})
+                  this.state.user.length &&this.setState({open: false})
                   this.props.changeBack();
                 }}
               >
                 <select onChange={this.handleChange} value={user} name="user">
-                  <option value="">Select User</option>
+                  <option value={""}>Select User</option>
                   {this.props.users.map(user => (
                     <option key={user.username} value={user.username}>
                       {user.username}
