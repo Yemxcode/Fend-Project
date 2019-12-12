@@ -12,6 +12,7 @@ import SingleArticle from './Components/SingleArticle';
 import MyContext from './MyContext';
 
 import LogInPage from './Components/LogInPage'
+import Test from './Components/Test';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
        <Users path="/users"/>
        <SingleUser path="/users/:username"/>
        <SingleArticle path="/articles/id/:id"/>
-        <LogInPage path="/login"/>
+        {/* <LogInPage path="/login"/> */}
+        <Test path="/login" />
      </Router>
      </Layout>
      </MyContext>
