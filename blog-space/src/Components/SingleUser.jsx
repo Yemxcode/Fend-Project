@@ -25,7 +25,8 @@ export default class SingleUser extends React.Component {
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status, msg: response.data },
-          isLoading: false
+          isLoading: false,
+          error: null
         })
       );
     api
