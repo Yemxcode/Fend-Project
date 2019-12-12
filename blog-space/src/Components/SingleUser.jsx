@@ -21,12 +21,13 @@ export default class SingleUser extends React.Component {
   componentDidMount() {
     api
       .getUser(this.props.username)
-      .then(({ user }) => this.setState({ user, isLoading: false }))
+      .then(({ user }) =>
+        this.setState({ user, isLoading: false, error: null })
+      )
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status, msg: response.data },
-          isLoading: false,
-          error: null
+          isLoading: false
         })
       );
     api
@@ -56,7 +57,7 @@ export default class SingleUser extends React.Component {
           <h2>Username: {user.username}</h2>
           <h2>Name: {user.name}</h2>
           <img src={user.avatar_url} alt="chosen profile avatar"></img>
-          <ul className="Ul">
+          {articles.length && <ul className="Ul">
             <h3>Articles</h3>
             {articles.map(article => (
               <li className="Li" key={article.article_id}>
@@ -79,7 +80,7 @@ export default class SingleUser extends React.Component {
                 </div>
               </li>
             ))}
-          </ul>
+          </ul>}
         </section>
       </>
     );

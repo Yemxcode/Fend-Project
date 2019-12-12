@@ -10,7 +10,6 @@ export default class MyContext extends React.Component {
  
  
  render() {
-  console.log(this.state.loggedInAs)
   return(
    <>
    <Context.Provider value={

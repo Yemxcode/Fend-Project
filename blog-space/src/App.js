@@ -11,9 +11,7 @@ import SingleUser from './Components/SingleUser';
 import SingleArticle from './Components/SingleArticle';
 import MyContext from './MyContext';
 import ErrorDisplay from './Components/ErrorDisplay'
-
-import LogInPage from './Components/LogInPage'
-import Test from './Components/Test';
+import LoginPage from './Components/LoginPage';
 
 function App() {
   return (
@@ -29,8 +27,7 @@ function App() {
             <Users path="/users" />
             <SingleUser path="/users/:username" />
             <SingleArticle path="/articles/id/:id" />
-            {/* <LogInPage path="/login"/> */}
-            <Test path="/login" />
+            <LoginPage path="/login" />
             <ErrorDisplay
               error={{ status: 404, msg: "Route Not Found :/" }}
               default
