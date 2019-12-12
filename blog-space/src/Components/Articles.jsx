@@ -40,7 +40,7 @@ export default class Articles extends React.Component {
   searchArticle = (author, order, topic, sort_by) => {
     api
       .getArticles({ author, order, topic, sort_by })
-      .then(({ articles }) => this.setState({ articles, isLoading: false }))
+      .then(({ articles }) => this.setState({ articles, isLoading: false, error: null }))
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status, msg: response.data },

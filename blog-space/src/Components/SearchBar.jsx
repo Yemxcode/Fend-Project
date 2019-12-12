@@ -12,7 +12,8 @@ export default class SearchBar extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    value.length && this.setState({ [name]: value });
+    value !== null &&
+    this.setState({ [name]: value });
   };
 
   changeTopic = topic => {
