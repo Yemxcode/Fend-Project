@@ -5,6 +5,7 @@ import SearchById from "./SearchById";
 import FormatArticle from "./FormatArticle";
 import ArticleComments from "./ArticleComments";
 import LoadSearch from "./LoadSearch";
+import ErrorDisplay from "./ErrorDisplay";
 
 export default class SingleArtist extends React.Component {
   state = {
@@ -36,13 +37,14 @@ export default class SingleArtist extends React.Component {
     prevProps.id !== this.props.id &&
       api
         .getArticleById(this.props.id)
-        .then(({ article }) => this.setState({ article, isLoading: false }))
+        .then(({ article }) => this.setState({ article, isLoading: false, error: null }))
         .catch(({ response }) =>
           this.setState({
             error: { msg: response.data },
             isLoading: false
           })
         );
+
   }
 
   deleteArticle = id => {
@@ -76,18 +78,20 @@ export default class SingleArtist extends React.Component {
       return (
         <>
           <SearchById searchArticle={this.searchArticle} />
-          {<FormatArticle
+          {error ? <ErrorDisplay error={error}/> : 
+          <>
+          <FormatArticle
             username={username}
             error={error}
             article={article}
             deleteArticle={this.deleteArticle}
-          />}
+          />
           {!error && (
             <button onClick={() => this.setState({ notShow: !notShow })}>
               {showLabel}
             </button>
           )}
-          {!notShow && <ArticleComments id={this.props.id} />}
+          {!notShow && <ArticleComments id={this.props.id} />}</>}
         </>
       );
   }
