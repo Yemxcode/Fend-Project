@@ -7,8 +7,7 @@ export default function  Homepage  ({Context})  {
  
  return (
   <div>
-    <button><Link to="/login">Login</Link></button>
-    <button><Link to="/signup">SignUp</Link></button>
+    <button><Link to="/sign_up">Sign Up</Link></button>
     <button><Link to="/articles">Browse</Link></button>
     {/* <TopicCard /> */}
   </div>
