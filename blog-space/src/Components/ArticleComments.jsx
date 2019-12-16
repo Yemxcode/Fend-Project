@@ -4,25 +4,28 @@ import CommentsForm from "./CommentsForm";
 import SortComment from "./SortComment";
 import FormatComments from "./FormatComments";
 import LoadingSpinner from "./LoadingSpinner";
-
+// import { Context} from "../MyContext";
+import  MyContext from "../MyContext"
 export default class ArticleComments extends React.Component {
   state = {
     comments: [],
     isLoading: true,
-    username: "tickle122",
+    username: "",
     error: null,
     query: null
   };
 
   componentDidMount() {
+    
     api
       .getComments(this.props.id)
       .then(({ comments }) => this.setState({ comments, isLoading: false }))
       .catch(({ response }) =>
-        this.setState({
+      <MyContext.Consumer>
+        {(context) => (this.setState({
           error: { msg: response.data },
-          isLoading: false
-        })
+          isLoading: false, username : context.state.loggedInAs}))}
+        </MyContext.Consumer>
       );
   }
 
@@ -40,7 +43,9 @@ export default class ArticleComments extends React.Component {
   };
 
   postBody = body => {
+    
    const { username} = this.state;
+   console.log(username)
     api
       .postComment(this.props.id, username, body)
       .then(({ comment }) =>
@@ -81,6 +86,7 @@ export default class ArticleComments extends React.Component {
 
   render() {
     const { comments, isLoading, username, error } = this.state;
+    console.log(comments)
     if (isLoading) return <LoadingSpinner/>;
     return (
       <div>
