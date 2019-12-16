@@ -4,32 +4,26 @@ import CommentsForm from "./CommentsForm";
 import SortComment from "./SortComment";
 import FormatComments from "./FormatComments";
 import LoadingSpinner from "./LoadingSpinner";
-// import { Context} from "../MyContext";
-import  MyContext from "../MyContext"
 export default class ArticleComments extends React.Component {
   state = {
     comments: [],
     isLoading: true,
-    username: "",
     error: null,
     query: null
   };
 
   componentDidMount() {
-    
     api
       .getComments(this.props.id)
       .then(({ comments }) => this.setState({ comments, isLoading: false }))
       .catch(({ response }) =>
-      <MyContext.Consumer>
-        {(context) => (this.setState({
+        this.setState({
           error: { msg: response.data },
-          isLoading: false, username : context.state.loggedInAs}))}
-        </MyContext.Consumer>
+          isLoading: false
+        })
       );
   }
 
-  
   commentSorter = query => {
     api
       .getComments(this.props.id, query)
@@ -42,10 +36,7 @@ export default class ArticleComments extends React.Component {
       );
   };
 
-  postBody = body => {
-    
-   const { username} = this.state;
-   console.log(username)
+  postBody = (body, username) => {
     api
       .postComment(this.props.id, username, body)
       .then(({ comment }) =>
@@ -62,15 +53,16 @@ export default class ArticleComments extends React.Component {
               "Error! Sorry cannot post this comment, please try again later ;/ "
           },
           isLoading: false
-        })
-      );
+        }))
+
   };
 
- 
   deleteComment = id => {
     this.setState(currentState => {
       return {
-        comments: currentState.comments.filter(comment => comment.comment_id !== id)
+        comments: currentState.comments.filter(
+          comment => comment.comment_id !== id
+        )
       };
     });
     api.deleteCommentById(id).catch(({ response }) =>
@@ -85,9 +77,8 @@ export default class ArticleComments extends React.Component {
   };
 
   render() {
-    const { comments, isLoading, username, error } = this.state;
-    console.log(comments)
-    if (isLoading) return <LoadingSpinner/>;
+    const { comments, isLoading, error} = this.state;
+    if (isLoading) return <LoadingSpinner />;
     return (
       <div>
         <CommentsForm postBody={this.postBody} />
@@ -95,7 +86,7 @@ export default class ArticleComments extends React.Component {
           <SortComment commentSorter={this.commentSorter} />
           <FormatComments
             comments={comments}
-            username={username}
+            username={null}
             error={error}
             deleteComment={this.deleteComment}
           />
@@ -104,4 +95,3 @@ export default class ArticleComments extends React.Component {
     );
   }
 }
-

@@ -63,7 +63,7 @@ export default class NavigationBar extends React.Component {
                 <Navbar.Brand
                   onClick={() => navigate(`/users/${context.state.loggedInAs}`)}
                 >
-                  {context.state.loggedInAs}
+                  {context.state.loggedInAs ? `Hello!  ${context.state.loggedInAs}` : 'Welcome'}
                 </Navbar.Brand>
               )}
             </Context.Consumer>

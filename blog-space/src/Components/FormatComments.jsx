@@ -2,11 +2,13 @@ import React from 'react';
 import VoteButton from './VoteButton';
 import DeleteButton from './DeleteButton';
 import {Link} from '@reach/router';
+import { Context } from "../MyContext";
 import '../Layouts/Main.css'
 
 export default function FormatComments ({comments, username, error, deleteComment}){
  return (
-   <ul className="comment_Ul">
+   <Context.Consumer>
+   {context => <ul className="comment_Ul">
      {comments.map(comment => (
        <li className="comment_Li"  key={comment.comment_id}>
          <p className="comment_Username">
@@ -19,7 +21,7 @@ export default function FormatComments ({comments, username, error, deleteCommen
            votes={comment.votes}
            id={comment.comment_id}
          />
-         {username === comment.author && (
+         {context.state.loggedInAs === comment.author && (
            <DeleteButton
              error={error}
              deleteFunc={deleteComment}
@@ -28,6 +30,7 @@ export default function FormatComments ({comments, username, error, deleteCommen
          )}
        </li>
      ))}
-   </ul>
+   </ul>}
+   </Context.Consumer>
  );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from '@reach/router';
 import VoteButton from './VoteButton';
 import DeleteButton from './DeleteButton'
+import { Context } from "../MyContext";
 import '../Layouts/Main.css'
 
 
@@ -19,7 +20,8 @@ export default function FormatArticle ({article, username, error, deleteArticle}
  } = article;
  return (
    <>
-     <article className="infobox">
+   <Context.Consumer>
+     {context => <article className="infobox">
        <h3>
          <Link to={`/users/${author}`}>Author: {author}</Link>
        </h3>
@@ -30,13 +32,13 @@ export default function FormatArticle ({article, username, error, deleteArticle}
        <section>Body: {body}</section>
        <section>Comments: {comment_count}</section>
     
-     {username === author && <DeleteButton error={error} id={article_id} deleteFunc={deleteArticle} />}
+     {context.state.loggedInAs === author && <DeleteButton error={error} id={article_id} deleteFunc={deleteArticle} />}
      <VoteButton
        commentOrArticle="articles"
        id={article_id}
        votes={votes} 
      />
-    </article>
+</article>}</Context.Consumer>
    </>
  );
 }

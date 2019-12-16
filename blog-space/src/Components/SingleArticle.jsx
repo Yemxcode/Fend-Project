@@ -9,7 +9,6 @@ import ErrorDisplay from "./ErrorDisplay";
 
 export default class SingleArtist extends React.Component {
   state = {
-    username: "tickle122",
     isLoading: true,
     article: {},
     error: null,
@@ -68,7 +67,6 @@ export default class SingleArtist extends React.Component {
       article,
       error,
       notShow,
-      username,
       articleDeleted
     } = this.state;
     let showLabel = notShow ? "Show Comments" : "Hide Comments";
@@ -77,11 +75,12 @@ export default class SingleArtist extends React.Component {
     else
       return (
         <>
+        
+        
           <SearchById searchArticle={this.searchArticle} />
           {error ? <ErrorDisplay error={error}/> : 
           <>
           <FormatArticle
-            username={username}
             error={error}
             article={article}
             deleteArticle={this.deleteArticle}
@@ -92,6 +91,7 @@ export default class SingleArtist extends React.Component {
             </button>
           )}
           {!notShow && <ArticleComments id={this.props.id} />}</>}
+          
         </>
       );
   }

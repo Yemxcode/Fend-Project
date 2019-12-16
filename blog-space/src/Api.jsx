@@ -34,13 +34,6 @@ export const getUsers = () => {
   return axios.get(`${baseUrl}users`).then(({ data }) => data);
 };
 
-// export const getArtAndTop = () => {
-//   return axios.all([
-//     axios.get(`${baseUrl}topics`),
-//     axios.get(`${baseUrl}articles`)
-//   ]).then(axios.spread(([topicsRes, articlesRes]) => (topicsRes, articlesRes) ));
-// };
-
 export const getTopics = () => {
   return axios.get(`${baseUrl}topics`).then(({ data }) => data);
 };

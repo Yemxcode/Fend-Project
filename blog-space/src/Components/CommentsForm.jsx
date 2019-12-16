@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faComment } from "@fortawesome/free-solid-svg-icons";
+import { Context } from "../MyContext";
 export default class CommentsForm extends React.Component {
   state = {
     body: ""
@@ -11,18 +12,17 @@ export default class CommentsForm extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
-   event.preventDefault();
-   this.state.body.length && this.props.postBody(this.state.body)
-   this.setState({body : ""})
-  }
 
 
   render() {
    const  {body} = this.state;
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+      <Context.Consumer>
+        {context => <form onSubmit={ e =>
+                  {e.preventDefault();
+                  body.length && this.props.postBody(body, context.state.loggedInAs)
+                  this.setState({ body: "" });}}>
           <textarea
             name="body"
             type="text"
@@ -35,7 +35,7 @@ export default class CommentsForm extends React.Component {
             Post
             <FontAwesomeIcon icon={faComment} />
           </button>
-        </form>
+    </form>}</Context.Consumer>
       </>
     );
   }

@@ -12,7 +12,6 @@ import LoadingSpinner from "./LoadingSpinner";
 
 export default class SingleUser extends React.Component {
   state = {
-    username : "",
     isLoading: true,
     user: {},
     articles: [],
