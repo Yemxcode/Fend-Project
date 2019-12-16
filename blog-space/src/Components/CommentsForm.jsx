@@ -21,7 +21,7 @@ export default class CommentsForm extends React.Component {
       <Context.Consumer>
         {context => <form onSubmit={ e =>
                   {e.preventDefault();
-                  body.length && this.props.postBody(body, context.state.loggedInAs)
+                  this.props.postBody(body, context.state.loggedInAs)
                   this.setState({ body: "" });}}>
           <textarea
             name="body"
