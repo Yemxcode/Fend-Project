@@ -9,10 +9,10 @@ export default function TopicCard () {
      <div className="card">
        <div className="face face1">
          <div className="content">
-           <img
-             src="https://www.pinterest.co.uk/pin/610800768197726095/"
+           {/* <img
+             src=""
              alt="naruto"
-           ></img>
+           ></img> */}
            <h3>Coding</h3>
          </div>
        </div>
@@ -28,10 +28,10 @@ export default function TopicCard () {
      <div className="card">
        <div className="face face1">
          <div className="content">
-           <img
-             src="https://www.pinterest.co.uk/pin/610800768197726095/"
+           {/* <img
+             src=""
              alt="naruto"
-           ></img>
+           ></img> */}
            <h3>Football</h3>
          </div>
        </div>
@@ -47,10 +47,10 @@ export default function TopicCard () {
      <div className="card">
        <div className="face face1">
          <div className="content">
-           <img
-             src="https://www.pinterest.co.uk/pin/610800768197726095/"
+           {/* <img
+             src=""
              alt="naruto"
-           ></img>
+           ></img> */}
            <h3>Cooking</h3>
          </div>
        </div>
