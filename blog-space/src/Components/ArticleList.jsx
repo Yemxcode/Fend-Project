@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "@reach/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger, faCode, faFutbol} from "@fortawesome/free-solid-svg-icons";
+import Time from './Time'
 
 export default function ArticleList({ articles }) {
  if (!articles.length) return <h3>chosen author does not have an article with the chosen topic :/</h3>
@@ -13,7 +14,7 @@ export default function ArticleList({ articles }) {
         
         <li className="Li" key={article.article_id}>
           <section className="article_Title"><Link to={`/articles/id/${article.article_id}`}>{article.title}</Link></section>
-          <section className="timeLikes"><p>Created: {article.created_at}</p> <p>Likes: {article.votes}</p></section>
+          <section className="timeLikes"><p>Created: <Time time={article.created_at} /></p> <p>Likes: {article.votes}</p></section>
           <section> Comments: {article.comment_count}</section>
           <div className="icon">
             {article.topic === "cooking" && (

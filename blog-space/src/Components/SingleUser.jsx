@@ -2,6 +2,7 @@ import React from "react";
 import * as api from "../Api";
 import { Link } from "@reach/router";
 import ErrorShower from "./ErrorDisplay";
+import Time from "./Time";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHamburger,
@@ -59,30 +60,35 @@ export default class SingleUser extends React.Component {
           <h2>Name: {user.name}</h2>
           <img src={user.avatar_url} alt="chosen profile avatar"></img>
           <PostArticle />
-          {articles.length && <ul className="Ul">
-            <h3>Articles</h3>
-            {articles.map(article => (
-              <li className="Li" key={article.article_id}>
-                {" "}
-                <section className="user_articles">
-                  <Link to={`/articles/id/${article.article_id}`}>
-                    {article.title}
-                  </Link>
-                </section>
-                <div className="icon">
-                  {article.topic === "cooking" && (
-                    <FontAwesomeIcon icon={faHamburger} />
-                  )}
-                  {article.topic === "football" && (
-                    <FontAwesomeIcon icon={faFutbol} />
-                  )}
-                  {article.topic === "coding" && (
-                    <FontAwesomeIcon icon={faCode} />
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>}
+          {articles.length && (
+            <ul className="Ul">
+              <h3>Articles</h3>
+              {articles.map(article => (
+                <li className="Li" key={article.article_id}>
+                  {" "}
+                  <section className="user_articles">
+                    <Link to={`/articles/id/${article.article_id}`}>
+                      {article.title}
+                    </Link>
+                  </section>
+                  <p>
+                    Created: <Time time={article.created_at} />
+                  </p>
+                  <div className="icon">
+                    {article.topic === "cooking" && (
+                      <FontAwesomeIcon icon={faHamburger} />
+                    )}
+                    {article.topic === "football" && (
+                      <FontAwesomeIcon icon={faFutbol} />
+                    )}
+                    {article.topic === "coding" && (
+                      <FontAwesomeIcon icon={faCode} />
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </>
     );
