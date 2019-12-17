@@ -10,9 +10,11 @@ export default function ArticleList({ articles }) {
     <ul className="Ul">
       <h2>Articles</h2>
       {articles.map(article => (
+        
         <li className="Li" key={article.article_id}>
           <section className="article_Title"><Link to={`/articles/id/${article.article_id}`}>{article.title}</Link></section>
           <section className="timeLikes"><p>Created: {article.created_at}</p> <p>Likes: {article.votes}</p></section>
+          <section> Comments: {article.comment_count}</section>
           <div className="icon">
             {article.topic === "cooking" && (
               <FontAwesomeIcon icon={faHamburger} />

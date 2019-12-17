@@ -38,7 +38,7 @@ export default class PostArticle extends React.Component {
   }
 
   render() {
-    const { topics, topic, newTopic, description, title, body } = this.state;
+    const { topics, topic, newTopic, title, body } = this.state;
     return (
       <Context.Consumer>
         {context => (

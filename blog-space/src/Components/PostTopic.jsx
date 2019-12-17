@@ -4,8 +4,7 @@ export default class PostTopic extends React.Component {
  state = {
   isLoading: true,
   error: null,
-  topic: null,
-  description: null
+  topic: null
  }
 
  render () {

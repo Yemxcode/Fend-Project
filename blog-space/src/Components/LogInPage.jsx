@@ -43,8 +43,8 @@ export default class LoginPage extends React.Component {
                   this.props.changeBack();
                 }}
               >
-                <select onChange={this.handleChange} value={user} name="user">
-                  <option value={""}>Select User</option>
+                <select onChange={this.handleChange} required value={user} name="user">
+                  <option disabled value="">Select User</option>
                   {this.props.users.map(user => (
                     <option key={user.username} value={user.username}>
                       {user.username}
