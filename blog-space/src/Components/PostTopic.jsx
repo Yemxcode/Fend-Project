@@ -17,9 +17,10 @@ export default class PostTopic extends React.Component {
 
  handleSubmit = e => {
    e.preventDefault();
+   const {refreshTopic} = this.props
    this.setState({isLoading: true, topicPosted: false})
    const {topic, description} = this.state;
-   api.postTopic(description, topic).then(res => this.setState({ topicPosted: true, topic: '', description: '', isLoading: false })).catch(({ response }) => this.setState({ error: { status: response.status, msg: response.data }, isLoading: false}))
+   api.postTopic(description, topic).then(res => { this.setState({ topicPosted: true, topic: '', description: '', isLoading: false }); refreshTopic()}).catch(({ response }) => this.setState({ error: { status: response.status, msg: response.data }, isLoading: false}))
  }
  render () {
    const {topic, description, error, topicPosted, isLoading} = this.state;

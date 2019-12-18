@@ -3,6 +3,7 @@ import * as api from "../Api";
 import { Context } from "../MyContext";
 import ErrorDisplay from './ErrorDisplay'
 
+
 export default class PostArticle extends React.Component {
   state = {
     isLoading: true,
@@ -15,23 +16,36 @@ export default class PostArticle extends React.Component {
   };
 
   componentDidMount() {
-    api.getTopics().then(({ topics }) => this.setState({ topics, isLoading: false }));
+    api.getTopics().then(({ topics }) => this.setState({ topics, isLoading: false })).catch(({ response }) =>
+      this.setState({
+        error: { status: response.status, msg: response.data },
+        isLoading: false
+      }));
   }
 
-  handleSubmit = () => {};
+  
 
   handleChange = e => {
     const { value, name } = e.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (username) => {
+  componentDidUpdate(pP) {
+    pP.topicUpdate !== this.props.topicUpdate && 
+      api.getTopics().then(({ topics }) => this.setState({ topics, isLoading: false })).catch(({ response }) =>
+        this.setState({
+          error: { status: response.status, msg: response.data },
+          isLoading: false
+        })); 
+  }
 
+  handleSubmit = (username) => {
+    const {refresh} = this.props;
    this.setState({isLoading: true, error: null, articlePosted: false})
    const {body, topic, title} = this.state;
    api
      .postArticle(username, body, topic, title)
-     .then(res => this.setState({topic: '', body: '', title: '', isLoading: false, articlePosted: true}))
+     .then(res => {this.setState({topic: '', body: '', title: '', isLoading: false, articlePosted: true}); refresh() })
      .catch(({ response }) =>
        this.setState({
          error: { msg: 'Unfortunately unable to post this article at this moment, please try again later :/' },
