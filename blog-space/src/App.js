@@ -12,6 +12,7 @@ import SingleArticle from './Components/SingleArticle';
 import MyContext from './MyContext';
 import ErrorDisplay from './Components/ErrorDisplay'
 import LoginPage from './Components/LoginPage';
+import PostUser  from './Components/PostUser';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <SingleUser path="/users/:username" />
             <SingleArticle path="/articles/id/:id" />
             <LoginPage path="/login" />
+            <PostUser path="/sign_up"/>
             <ErrorDisplay
               error={{ status: 404, msg: "Route Not Found :/" }}
               default
