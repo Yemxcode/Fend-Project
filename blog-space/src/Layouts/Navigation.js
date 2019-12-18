@@ -61,7 +61,7 @@ export default class NavigationBar extends React.Component {
             <Context.Consumer>
               {context => (
                 <Navbar.Brand
-                  onClick={() => navigate(`/users/${context.state.loggedInAs}`)}
+                  onClick={() => { context.state.loggedInAs && navigate(`/users/${context.state.loggedInAs}`)}}
                 >
                   {context.state.loggedInAs ? `Hello!  ${context.state.loggedInAs}` : 'Welcome'}
                 </Navbar.Brand>
@@ -80,7 +80,13 @@ export default class NavigationBar extends React.Component {
                       Users
                     </Nav.Link>
                     <Nav.Link onClick={this.handleClick}>Log In</Nav.Link>
+                    <Context.Consumer>
+                      {context => (<Nav.Link onClick={() => {
+                        context.logIn(null);
+                      }}>{context.state.loggedInAs && 'Log Out'}</Nav.Link>)}
+                    </Context.Consumer>
                   </Nav.Item>
+                  
                 )}
               </Nav>
             </Navbar.Collapse>
