@@ -1,19 +1,21 @@
 import React from "react";
 import * as api from "../Api";
 import { Context } from "../MyContext";
+import ErrorDisplay from './ErrorDisplay'
 
 export default class PostArticle extends React.Component {
   state = {
     isLoading: true,
     topics: [],
-    topic: null,
+    topic: '',
     title: '',
-    body: "",
+    body: '',
+    articlePosted: false,
     error: null
   };
 
   componentDidMount() {
-    api.getTopics().then(({ topics }) => this.setState({ topics }));
+    api.getTopics().then(({ topics }) => this.setState({ topics, isLoading: false }));
   }
 
   handleSubmit = () => {};
@@ -24,22 +26,27 @@ export default class PostArticle extends React.Component {
   };
 
   handleSubmit = (username) => {
-   this.setState({isLoading: true})
+
+   this.setState({isLoading: true, error: null, articlePosted: false})
    const {body, topic, title} = this.state;
    api
      .postArticle(username, body, topic, title)
-     .then(res => this.setState({}))
+     .then(res => this.setState({topic: '', body: '', title: '', isLoading: false, articlePosted: true}))
      .catch(({ response }) =>
        this.setState({
-         error: { msg: response.data },
+         error: { msg: 'Unfortunately unable to post this article at this moment, please try again later :/' },
          isLoading: false
        })
      );
   }
 
   render() {
-    const { topics, topic, newTopic, title, body } = this.state;
+    const { topics, topic, newTopic, title, body, isLoading, error, articlePosted } = this.state;
+    if (isLoading) return <h2> Loading ...</h2>;
     return (
+      <>
+      {error && <ErrorDisplay error={error}/>}
+      {articlePosted && <p>Article successfully posted!</p>}
       <Context.Consumer>
         {context => (
           <form
@@ -51,11 +58,11 @@ export default class PostArticle extends React.Component {
             <select
               disabled={newTopic}
               onChange={this.handleChange}
-              value={topic || ""}
+              value={topic}
               name="topic"
               required
             >
-              <option value={""}>Select Topic</option>
+              <option disabled value="">Select Topic</option>
               {topics.map(topic => (
                 <option key={topic.slug} value={topic.slug}>
                   {topic.slug}
@@ -80,6 +87,7 @@ export default class PostArticle extends React.Component {
           </form>
         )}
       </Context.Consumer>
+      </>
     );
   }
 }

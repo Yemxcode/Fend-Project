@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import LoadingSpinner from "./LoadingSpinner";
 import PostArticle from "./PostArticle";
+import { Context } from "../MyContext";
 
 export default class SingleUser extends React.Component {
   state = {
@@ -59,7 +60,9 @@ export default class SingleUser extends React.Component {
           <h2>Username: {user.username}</h2>
           <h2>Name: {user.name}</h2>
           <img src={user.avatar_url} alt="chosen profile avatar"></img>
-          <PostArticle />
+          <Context.Consumer>
+          {context => (context.state.loggedInAs === user.username && <><PostArticle /></>)}
+          </Context.Consumer>
           {articles.length && (
             <ul className="Ul">
               <h3>Articles</h3>
