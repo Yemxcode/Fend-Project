@@ -7,8 +7,7 @@ export default class SearchBar extends React.Component {
     author: null,
     order: null,
     topic: null,
-    sort_by: null,
-    page: 1
+    sort_by: null
   };
 
   handleChange = event => {

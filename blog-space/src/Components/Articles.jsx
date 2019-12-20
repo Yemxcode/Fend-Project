@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import { navigate } from "@reach/router";
 import LoadSearch from "./LoadSearch";
 import ErrorDisplay from "./ErrorDisplay";
-
+import PaginationNav from "./PaginationNav";
 
 export default class Articles extends React.Component {
   state = {
@@ -14,7 +14,7 @@ export default class Articles extends React.Component {
     totalCount: 0,
     topics: [],
     error: null,
-    maxPage: 0,
+    maxPage: 1,
     query: {
       author: null,
       order: null,
@@ -45,8 +45,19 @@ export default class Articles extends React.Component {
       );
   }
 
-  searchArticle = (author, order, topic, sort_by, page) => {
-    this.setState({ query: { author, order, topic, sort_by, page}})
+  changePage = (number) => {
+    this.setState(currentState => {
+      return {
+        ...currentState, query : {
+          ...currentState.query, page: number
+        }    
+      }
+    })
+  }
+
+
+  searchArticle = (author, order, topic, sort_by) => {
+    this.setState({ query: { author, order, topic, sort_by}})
     topic || topic.length ? navigate(`/articles/${topic}`) : navigate(`/articles`)
   };
 
@@ -73,8 +84,7 @@ export default class Articles extends React.Component {
       return (
         <>
           <SearchBar topics={topics} searchArticle={this.searchArticle} />
-          
-          {error ? <ErrorDisplay error={error} /> : <ArticleList totalCount={totalCount} maxPage={maxPage} articles={articles} />}
+          {error ? <ErrorDisplay error={error} /> : <><ArticleList totalCount={totalCount} articles={articles} /> <PaginationNav page={this.state.query.page} changePage={this.changePage} maxPage={maxPage} /> </>}
         </>
       );
   }
