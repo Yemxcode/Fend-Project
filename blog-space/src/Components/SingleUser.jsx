@@ -61,7 +61,7 @@ export default class SingleUser extends React.Component {
   };
 
   componentDidUpdate (pP, pS) {
-    pS.update !== this.state.update &&
+    if (pS.update !== this.state.update || pP.username !== this.props.username)
       api
         .getUser(this.props.username)
         .then(({ user }) =>
