@@ -6,13 +6,13 @@ export default class SearchBar extends React.Component {
   state = {
     author: null,
     order: null,
-    topic: "",
-    sort_by: null
+    topic: null,
+    sort_by: null,
+    page: 1
   };
 
   handleChange = event => {
     const { name, value } = event.target;
-    value !== null &&
     this.setState({ [name]: value });
   };
 
@@ -23,7 +23,7 @@ export default class SearchBar extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const { author, order, topic, sort_by } = this.state;
-    if (author || order || topic.length || sort_by) {
+    if (author || order || topic || sort_by || topic === "") {
       this.props.searchArticle(author, order, topic, sort_by);
     }
   };
@@ -55,13 +55,13 @@ export default class SearchBar extends React.Component {
             value={sort_by || ""}
             name="sort_by"
           >
-            <option value="">Select Sort By</option>
+            <option disabled value="">Select Sort By</option>
             <option value="created_at">Date</option>
             <option value="comment_count">Comment Count</option>
             <option value="votes">Votes</option>
           </select>
           <select onChange={this.handleChange} value={order || ""} name="order">
-            <option value="">Select Order By</option>
+            <option disabled value="">Select Order By</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>

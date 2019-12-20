@@ -11,8 +11,15 @@ export default class Articles extends React.Component {
   state = {
     isLoading: true,
     articles: [],
+    totalCount: 0,
     topics: [],
-    error: null
+    error: null,
+    query: {
+      author: null,
+      order: null,
+      topic: null,
+      sort_by: null,
+      page: 1}
   };
 
   componentDidMount() {
@@ -20,7 +27,7 @@ export default class Articles extends React.Component {
       .getArticles({
         topic: this.props.topic
       })
-      .then(({ articles }) => this.setState({ articles, isLoading: false }))
+      .then(({ articles, totalCount }) => this.setState({ articles, totalCount, isLoading: false }))
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status || 404, msg: response.data }
@@ -36,21 +43,27 @@ export default class Articles extends React.Component {
       );
   }
 
-  searchArticle = (author, order, topic, sort_by) => {
-    api
-      .getArticles({ author, order, topic, sort_by })
-      .then(({ articles }) => this.setState({ articles, isLoading: false, error: null }))
-      .catch(({ response }) =>
-        this.setState({
-          error: { status: response.status, msg: response.data },
-          isLoading: false
-        })
-      );
-    navigate(`/articles/${topic}`);
+  searchArticle = (author, order, topic, sort_by, page) => {
+    this.setState({ query: { author, order, topic, sort_by, page}})
+    topic || topic.length ? navigate(`/articles/${topic}`) : navigate(`/articles`)
   };
 
+  componentDidUpdate(pP, pS) {
+    const { author, order, topic, sort_by, page } = this.state.query;
+    if (pS.query.author !== author || pS.query.order !== order || pS.query.topic !== topic || pS.query.sort_by !== sort_by || pS.query.page !== page)
+      api
+        .getArticles({ author, order, topic, sort_by, page })
+        .then(({ articles }) => this.setState({ articles, isLoading: false, error: null }))
+        .catch(({ response }) =>
+          this.setState({
+            error: { status: response.status, msg: response.data },
+            isLoading: false
+          })
+        );
+  }
+
   render() {
-    const { isLoading, articles, topics, error } = this.state;
+    const { isLoading, articles, topics, error, totalCount } = this.state;
     if (isLoading) return <LoadSearch />;
     else
       return (
