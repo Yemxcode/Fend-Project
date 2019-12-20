@@ -14,6 +14,7 @@ export default class Articles extends React.Component {
     totalCount: 0,
     topics: [],
     error: null,
+    maxPage: 0,
     query: {
       author: null,
       order: null,
@@ -27,7 +28,8 @@ export default class Articles extends React.Component {
       .getArticles({
         topic: this.props.topic
       })
-      .then(({ articles, totalCount }) => this.setState({ articles, totalCount, isLoading: false }))
+      .then(({ articles, totalCount }) => this.setState({ articles, totalCount, maxPage
+        : Math.ceil(totalCount / 10), isLoading: false }))
       .catch(({ response }) =>
         this.setState({
           error: { status: response.status || 404, msg: response.data }
@@ -53,7 +55,9 @@ export default class Articles extends React.Component {
     if (pS.query.author !== author || pS.query.order !== order || pS.query.topic !== topic || pS.query.sort_by !== sort_by || pS.query.page !== page)
       api
         .getArticles({ author, order, topic, sort_by, page })
-        .then(({ articles }) => this.setState({ articles, isLoading: false, error: null }))
+        .then(({ articles, totalCount }) => this.setState({
+          articles, isLoading: false, error: null, totalCount, maxPage
+            : Math.ceil(totalCount / 10) }))
         .catch(({ response }) =>
           this.setState({
             error: { status: response.status, msg: response.data },
@@ -63,14 +67,14 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const { isLoading, articles, topics, error, totalCount } = this.state;
+    const { isLoading, articles, topics, error, totalCount, maxPage } = this.state;
     if (isLoading) return <LoadSearch />;
     else
       return (
         <>
           <SearchBar topics={topics} searchArticle={this.searchArticle} />
           
-          {error ? <ErrorDisplay error={error}/> :<ArticleList articles={articles} />}
+          {error ? <ErrorDisplay error={error} /> : <ArticleList totalCount={totalCount} maxPage={maxPage} articles={articles} />}
         </>
       );
   }
