@@ -50,20 +50,7 @@ img {
  background-color: rgb(144, 141, 141)
 }
 
-/* .showBtn {
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #97a6af;
-    border: solid 2px #3c3e3f;
-    border-radius: 3px;
-    transition: .4s;
-    margin: 0px 5px 40px 5px;
-}
 
-.showBtn:hover {
-  background: #33cee2;
-    color: white;  
-} */
 
 
 .userSpan {
@@ -470,7 +457,6 @@ padding: 0.3em 1em;
   }
 }
 .browseButton{
-    
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -531,7 +517,7 @@ padding: 0.3em 1em;
   cursor: pointer;
 }
 .signUpBtn {
-    background-color: #2ec876;
+    background-color: #94d6b3;
     color: white;
     border-color: white;
     border-radius: 25px;
@@ -558,7 +544,9 @@ padding: 0.3em 1em;
 } 
 
 
-
+label{
+    font-weight: bold;
+}
 
 .signUpForm {
   display: grid;
@@ -568,4 +556,41 @@ padding: 0.3em 1em;
   border-style: solid;
   padding: 20px;
   margin-bottom: 60px;
+}
+
+.searchBarForm{
+    display: inline-flexbox;
+}
+
+.searchBarInput{
+    width: auto;
+    background-color:white;
+  color: black;
+  padding: 3px 10px;
+  margin: 8px 0;
+  border: solid;
+  border-color: lightgray;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.searchBarBtn{
+    text-align: center;
+    background-color: rgb(217, 228, 70);
+    color: white;
+    border-color: #1615156b;
+    border-radius: 25px;
+    height: 40px;
+    width: 200px;
+    border: solid;
+}
+
+select {
+     width: 150px;
+     height: 30px;
+     border: solid;
+     border-color: #1615156b;
+     margin-left: 1px;
+     margin-right: 1px;
+     background-color:rgb(217, 228, 70);
 }

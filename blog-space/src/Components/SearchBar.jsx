@@ -30,17 +30,17 @@ export default class SearchBar extends React.Component {
     const { author, order, topic, sort_by } = this.state;
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Author:
+        <form className="searchBarForm" onSubmit={this.handleSubmit}>
+          
             <input
               name="author"
               placeholder="author"
               value={author || ""}
               onChange={this.handleChange}
               noValidate
+              className="searchBarInput"
             />
-          </label>
+          
           <select onChange={this.handleChange} value={topic || ""} name="topic">
             <option value="">Select Topic</option>
             {this.props.topics.map(topic => (
@@ -64,7 +64,7 @@ export default class SearchBar extends React.Component {
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
-          <button>
+          <button className="searchBarBtn">
             Search <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
