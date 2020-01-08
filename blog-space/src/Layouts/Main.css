@@ -1,11 +1,35 @@
+p, h1, h2, h3 {
+    color: black;
+}
+
+a:link {
+  color: black;
+}
+
+
+a:visited {
+  color: grey;
+}
+
+
+a:hover {
+  color: hsl(212, 100%, 50%);
+}
+
+
+a:active {
+  color: rgb(81, 201, 117);
+}
+
 .Ul {
+ display: flexbox;
  position: relative;
  margin: 100px auto 0;
  padding: 10px;
 }
 
 .Ul .Li{
- display: flex;
+ display: grid;
  padding: 10px 20px;
  background-color: rgb(240, 238, 238);
  border: 1px solid rgb(131, 128, 128);
@@ -19,41 +43,63 @@
  background-color: rgb(144, 141, 141)
 }
 
-.userSpan {
- display: flex;
- justify-content: right;
-}
-
-.comment_Username{
-    font-size:14px;
-    font-weight: bold;
-
-}
-
-.comment_Ul {
-    position: relative;
-
- margin: 100px auto 0;
- padding: 10px;
-}
-
-.comment_Ul .comment_Li {
-    display: grid;
- padding: 10px 20px;
- background-color: rgb(240, 238, 238);
- border: 1px solid rgb(131, 128, 128);
- padding: 20px;
- transition: .5s;
-   
-}
-
-.btn_delete{
+.showBtn {
     padding: 0.3em 1em;
     text-decoration: none;
     color: #97a6af;
     border: solid 2px #3c3e3f;
     border-radius: 3px;
     transition: .4s;
+    margin: 0px 5px 40px 5px;
+}
+
+.showBtn:hover {
+  background: #33cee2;
+    color: white;  
+}
+
+
+.userSpan {
+ display: flex;
+ justify-content: right;
+}
+
+.comment_Username{
+ font-size:14px;
+ font-weight: bold;
+}
+
+.comment_Ul {
+ position: relative;
+ margin: 100px auto 0;
+ padding: 10px;
+}
+
+.comment_Li {
+ display: grid;
+ position: relative;
+ padding: 5px 5px;
+ background-color: rgb(240, 238, 238);
+ border: 1px solid rgb(131, 128, 128);
+ padding: 20px;
+ transition: .5s;
+ margin: 10px 10px 10px 10px 
+}
+
+.article_Title, .timeLikes, .articleListComments{
+    padding: 0.5em 0.5em;
+}
+.article_Title{
+    font-weight: bold;
+}
+.btn_delete{
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #e71b1b;
+    border: solid 2px #3c3e3f;
+    border-radius: 3px;
+    transition: .4s;
+    margin: 1px 1px 1px 1px;
 }
 .btn_like{
     padding: 0.3em 1em;
@@ -62,7 +108,6 @@
     border: solid 2px #3c3e3f;
     border-radius: 3px;
     transition: .4s;
-    margin: auto;
     margin: 1px 1px 1px 1px;
 }
 .btn_dislike{
@@ -79,12 +124,33 @@
 .delete_container{
     margin: 1px 1px 1px 1px;
 }
-.btn_container{
-  
-}
-.btn_delete .btn_like .btn_dislike:hover {
-    background: #4fa5da;
+
+.btn_dislike:hover {
+    background: rgb(255, 187, 0);
     color: white;
+}
+.btn_like:hover {
+    background: #33e26d;
+    color: white;
+}
+.btn_delete:hover {
+    background: red;
+    color: white;
+}
+
+
+.btn_like:disabled,
+.btn_like[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.btn_dislike:disabled,
+.btn_dislike[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 .infobox {
  position: relative;
@@ -129,18 +195,13 @@
     margin-left: auto;
 }
 
-.timeLikes{
-    text-align: center;
-    justify-content: center;
-}
-
 .user{
-
+    font-weight: bold;
+    font-size: large;
 }
 
 .user_Icon{
-    margin-left: auto;
-    
+    margin-left: auto;   
 }
 
 .homepage{
@@ -150,10 +211,6 @@
     justify-content: center;
 }
 
-.homepage:hover {
-    opacity: 1;
-  right: 0;
-}
 
 .signUpButton, .browseButton {
   border-radius: 4px;

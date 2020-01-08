@@ -86,7 +86,7 @@ export default class SingleArtist extends React.Component {
             deleteArticle={this.deleteArticle}
           />
           {!error && (
-            <button onClick={() => this.setState({ notShow: !notShow })}>
+            <button className="showBtn" onClick={() => this.setState({ notShow: !notShow })}>
               {showLabel}
             </button>
           )}

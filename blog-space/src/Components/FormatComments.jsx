@@ -18,7 +18,7 @@ export default function FormatComments ({comments, username, error, deleteCommen
              </p>
              <p>{comment.body}</p>
              <p>
-               <Time time={comment.created_at} />
+               Posted: <Time time={comment.created_at} />
              </p>{" "}
              <VoteButton
                commentOrArticle="comments"
