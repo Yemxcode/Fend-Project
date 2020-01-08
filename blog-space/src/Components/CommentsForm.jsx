@@ -19,7 +19,7 @@ export default class CommentsForm extends React.Component {
     return (
       <>
       <Context.Consumer>
-        {context => <form onSubmit={ e =>
+        {context => (context.state.loggedInAs && <form onSubmit={ e =>
                   {e.preventDefault();
                   this.props.postBody(body, context.state.loggedInAs)
                   this.setState({ body: "" });}}>
@@ -29,13 +29,13 @@ export default class CommentsForm extends React.Component {
             value={body}
             onChange={this.handleChange}
             required
-            placeholder="type comments"
+            placeholder="type your comments here...."
           ></textarea>
           <button>
             Post
             <FontAwesomeIcon icon={faComment} />
           </button>
-    </form>}</Context.Consumer>
+        </form>)}</Context.Consumer>
       </>
     );
   }

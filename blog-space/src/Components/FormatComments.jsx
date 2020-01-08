@@ -6,7 +6,7 @@ import { Context } from "../MyContext";
 import Time from "./Time";
 import '../Layouts/Main.css'
 
-export default function FormatComments ({comments, username, error, deleteComment}){
+export default function FormatComments ({comments, error, deleteComment}){
  return (
    <Context.Consumer>
      {context => (
