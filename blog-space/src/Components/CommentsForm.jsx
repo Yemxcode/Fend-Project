@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faComment } from "@fortawesome/free-solid-svg-icons";
+import {faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { Context } from "../MyContext";
 export default class CommentsForm extends React.Component {
   state = {
@@ -19,7 +19,7 @@ export default class CommentsForm extends React.Component {
     return (
       <>
       <Context.Consumer>
-        {context => (context.state.loggedInAs && <form onSubmit={ e =>
+          {context => (context.state.loggedInAs && <form className="signUpForm" onSubmit={ e =>
                   {e.preventDefault();
                   this.props.postBody(body, context.state.loggedInAs)
                   this.setState({ body: "" });}}>
@@ -29,11 +29,12 @@ export default class CommentsForm extends React.Component {
             value={body}
             onChange={this.handleChange}
             required
+            className="signUpInput"
+            type="text"
             placeholder="type your comments here...."
           ></textarea>
-          <button>
-            Post
-            <FontAwesomeIcon icon={faComment} />
+            <button className="postBtn" type="submit">
+            Post    <FontAwesomeIcon icon={faCommentAlt} />
           </button>
         </form>)}</Context.Consumer>
       </>

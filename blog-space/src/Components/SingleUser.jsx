@@ -102,7 +102,7 @@ export default class SingleUser extends React.Component {
           <h2>Username: {user.username}</h2>
           <h2>Name: {user.name}</h2>
           <Context.Consumer>
-            {context => (context.state.loggedInAs === user.username && <><PostTopic refreshTopic={this.refreshTopic} /><PostArticle topicUpdate={topicUpdate} refresh={this.refresh}/></>)}
+            {context => (context.state.loggedInAs === user.username && <div className="postContainer"><PostTopic refreshTopic={this.refreshTopic} /><PostArticle topicUpdate={topicUpdate} refresh={this.refresh}/></div>)}
           </Context.Consumer>
           {articles.length && (
             <ul className="Ul">

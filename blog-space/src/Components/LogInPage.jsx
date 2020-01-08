@@ -31,8 +31,8 @@ export default class LoginPage extends React.Component {
   render() {
     const { open, user } = this.state;
     return (
-      <Modal isOpen={open}>
-        <ModalBody>
+      <Modal className="modal" isOpen={open}>
+        <ModalBody className="modalBody">
           <Context.Consumer>
             {context => (
               <form
@@ -51,7 +51,7 @@ export default class LoginPage extends React.Component {
                     </option>
                   ))}
                 </select>
-                <button type="submit">Log In</button>
+                <button className="logInBtn"  type="submit">Log In</button>
               </form>
             )}
           </Context.Consumer>
@@ -61,7 +61,7 @@ export default class LoginPage extends React.Component {
             Exit
           </Button>
         </ModalFooter>
-      </Modal>
+      </Modal >
     );
   }
 }

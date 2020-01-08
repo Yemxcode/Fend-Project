@@ -51,7 +51,9 @@ img {
 }
 
 
-
+.Li{
+    margin-bottom: 10px;
+}
 
 .userSpan {
  display: flex;
@@ -229,49 +231,20 @@ img {
 
 
 .showBtn {
-padding: 0.3em 1em;
-    text-decoration: none;
-    color: #97a6af;
-    border: solid 2px #3c3e3f;
-    border-radius: 3px;
-    transition: .4s;
-    margin: 0px 5px 40px 5px;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
+    background-color:rgb(79, 168, 224);
+    color: white;
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
 }
-.showBtn:before {
-  position: absolute;
-  z-index: -1;
-  content: '';
-  left: calc(50% - 10px);
-  bottom: 0;
-  border-style: solid;
-  border-width: 10px 10px 0 10px;
-  border-color: #e1e1e1 transparent transparent transparent;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-.showBtn:hover, .showBtn:focus, .showBtn:active {
-  -webkit-transform: translateY(-10px);
-  transform: translateY(-10px);
-  background: #33cee2;
-    color: white; 
-}
-.showBtn:hover:before, .showBtn:focus:before, .showBtn:active:before {
-  -webkit-transform: translateY(10px);
-  transform: translateY(10px);
-  background: #33cee2;
-    color: white; 
+
+.showBtn:hover {
+  background-color: #187ba8;
+    color: white;
+    -moz-box-shadow: 2px 2px 2px  #999;
+    -webkit-box-shadow: 2px 2px 2px  #999;
+        box-shadow: 2px 2px 2px  #999;
 }
 
 @-webkit-keyframes btn_dislike {
@@ -410,13 +383,18 @@ padding: 0.3em 1em;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  padding: 0.3em 1em;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
     text-decoration: none;
-    color: #97a6af;
-    border: solid 2px #3c3e3f;
+    color: white;
+    border: solid 2px #39cce6;
+    background-color: lightgrey;
     border-radius: 3px;
     transition: .4s;
     margin: 5px 5px 5px 5px;
+    width: 50%;
+    height: 50px;
+    
 }
 .signUpButton .hvr-icon {
   -webkit-transform: translateZ(0);
@@ -464,11 +442,16 @@ padding: 0.3em 1em;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   padding: 0.3em 1em;
     text-decoration: none;
-    color: #97a6af;
-    border: solid 2px #3c3e3f;
+    color: white;
+    border: solid 2px #39cce6;
+    background-color: lightgrey;
     border-radius: 3px;
     transition: .4s;
     margin: 5px 5px 5px 5px;
+    width: 50%;
+    height: 50px;
+    padding: 10px 0px 10px 0px;
+  text-align: center;
 }
 .browseButton .hvr-icon {
   -webkit-transform: translateZ(0);
@@ -489,10 +472,15 @@ padding: 0.3em 1em;
 
 
 .browseButton:hover{
-    background: #33abe2;
-    color: white;
+    background-color: #33abe2;
+    color: grey;
+    border-color: lightgrey
 } 
-
+.signUpButton:hover{
+    background-color: #33abe2;
+    color: grey;
+    border-color: lightgrey;
+} 
 
 
 
@@ -555,7 +543,7 @@ label{
   border-color: lightgray;
   border-style: solid;
   padding: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .searchBarForm{
@@ -576,13 +564,18 @@ label{
 
 .searchBarBtn{
     text-align: center;
-    background-color: rgb(217, 228, 70);
+    background-color: lightgray;
     color: white;
     border-color: #1615156b;
     border-radius: 25px;
     height: 40px;
     width: 200px;
     border: solid;
+}
+
+.searchBarBtn:hover {
+    background-color: lightgreen;
+    color: white;
 }
 
 select {
@@ -592,5 +585,71 @@ select {
      border-color: #1615156b;
      margin-left: 1px;
      margin-right: 1px;
-     background-color:rgb(217, 228, 70);
+     background-color: lightgray;
+}
+
+.postContainer {
+    display: grid;
+}
+
+.logInBtn{
+    text-align: center;
+    background-color: rgb(91, 209, 91);
+    color: white;
+    border-radius: 15px;
+    height: 35px;
+    width: 100px;
+    border: solid;
+}
+
+.logInBtn:hover{
+    text-align: center;
+    background-color: rgb(139, 201, 139);
+    color: green;
+}
+
+.modal{
+    display: table;
+}
+
+.postBtn{
+    background-color:rgb(79, 168, 224);
+    color: white;
+    padding: 5px 0px 5px 0px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.postBtn:hover{
+    background-color:rgb(47, 132, 185);
+}
+
+.sortBtn{
+    text-align: center;
+    background-color: lightgray;
+    color: white;
+    border-color: #1615156b;
+    border-radius: 25px;
+    height: 40px;
+    width: 200px;
+    border: solid;
+}
+.sortBtn .sort-icon {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.sortBtn:hover .sort-icon, .sortBtn:focus .sort-icon, .sortBtn:active .sort-icon {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  
+}
+
+.sortBtn:hover{
+background-color: lightgreen;
+  color: white;
 }

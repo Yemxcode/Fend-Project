@@ -29,9 +29,10 @@ export default class SearchById extends React.Component {
             placeholder="Article ID"
             onChange={this.handleChange}
             value={id}
+            className="searchBarInput"
           />
         </label>
-        <button type="submit">
+        <button className="searchBarBtn" type="submit">
           Search <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>

@@ -77,8 +77,7 @@ export default class ArticleComments extends React.Component {
   };
 
   render() {
-    const { comments, isLoading, error} = this.state;
-    if (isLoading) return <LoadingSpinner />;
+    const { comments, error} = this.state;
     return (
       <div>
         <CommentsForm postBody={this.postBody} />

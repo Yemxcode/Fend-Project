@@ -43,7 +43,8 @@ export default class VoteButton extends React.Component {
           value={1}
           onClick={this.handleClick}
         >
-          Like
+          Like      
+             
           <FontAwesomeIcon icon={faThumbsUp} className="like-hvr-icon"/>
         </button>
         <button

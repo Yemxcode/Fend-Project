@@ -35,7 +35,11 @@ export default function FormatArticle ({article, error, deleteArticle}) {
            <section>Title: {title}</section>
            <section>Body: {body}</section>
            <section>Comments: {comment_count}</section>
-
+           <VoteButton
+             commentOrArticle="articles"
+             id={article_id}
+             votes={votes}
+           />
            {context.state.loggedInAs === author && (
              <DeleteButton
                error={error}
@@ -43,11 +47,6 @@ export default function FormatArticle ({article, error, deleteArticle}) {
                deleteFunc={deleteArticle}
              />
            )}
-           <VoteButton
-             commentOrArticle="articles"
-             id={article_id}
-             votes={votes}
-           />
          </article>
        )}
      </Context.Consumer>

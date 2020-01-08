@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 export default class SortComment extends React.Component {
   state = {
     order: null,
@@ -39,7 +40,7 @@ export default class SortComment extends React.Component {
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
-        <button>Sort</button>
+        <button className="sortBtn" type="submit">Sort   <FontAwesomeIcon icon={faSyncAlt} className="sort-icon"/></button>
       </form>
     );
   }

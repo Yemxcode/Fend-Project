@@ -64,6 +64,7 @@ export default class PostArticle extends React.Component {
       <Context.Consumer>
         {context => (
           <form
+            className="signUpForm"
             onSubmit={e => {
               e.preventDefault();
                 this.handleSubmit(context.state.loggedInAs);
@@ -89,6 +90,8 @@ export default class PostArticle extends React.Component {
               value={title}
               placeholder="Title"
               required
+              className="signUpInput"
+              type="text"
             />
             <textarea
               name="body"
@@ -96,8 +99,10 @@ export default class PostArticle extends React.Component {
               value={body}
               placeholder="Article Body"
               required
+              className="signUpInput"
+              type="text"
             />
-            <button type="submit">Post</button>
+              <button className="signUpBtn" type="submit">Post</button>
           </form>
         )}
       </Context.Consumer>

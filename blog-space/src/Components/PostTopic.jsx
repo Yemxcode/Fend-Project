@@ -29,16 +29,19 @@ export default class PostTopic extends React.Component {
   <>
     { error && <ErrorDisplay error={error} />}
     { topicPosted && <p>Topic successfully added!</p> }
-    <form onSubmit={this.handleSubmit}>
+      <form className="signUpForm" onSubmit={this.handleSubmit}>
       <label>
         {" "}
         New Topic:
         <input
           name="topic"
+          type="text"
           onChange={this.handleChange}
           placeholder="New Topic"
           value={topic}
           required
+          className="signUpInput"
+          
         />
       </label>
       <textarea
@@ -47,8 +50,10 @@ export default class PostTopic extends React.Component {
         value={description}
         placeholder="New Topic Description"
         required
+        className="signUpInput"
+        type="text"
       />
-      <button type="submit">Add new topic</button>
+        <button className="signUpBtn" type="submit">Add new topic</button>
     </form> 
     </>
   );
