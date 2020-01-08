@@ -6,7 +6,7 @@ import Time from './Time'
 
 
 export default function ArticleList({ articles, totalCount, maxPage }) {
- if (!articles.length) return <h3>chosen author does not have an article with the chosen topic :/</h3>
+ if (!articles.length) return <h3> The searched author does not have an article with the searched topic :/</h3>
  else
   return (
     <>
@@ -18,7 +18,7 @@ export default function ArticleList({ articles, totalCount, maxPage }) {
         <li className="Li" key={article.article_id}>
           <section className="article_Title"><Link to={`/articles/id/${article.article_id}`}>{article.title}</Link></section>
           <section className="timeLikes"><p>Created: <Time time={article.created_at} /></p> <p >Likes: {article.votes}</p></section>
-          <section p className="articleListComments"> Comments: {article.comment_count}</section>
+          <section className="articleListComments"> Comments: {article.comment_count}</section>
           <div className="icon">
             {article.topic === "cooking" && (
               <FontAwesomeIcon icon={faHamburger} />
