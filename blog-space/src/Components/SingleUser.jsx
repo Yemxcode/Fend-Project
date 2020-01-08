@@ -97,9 +97,10 @@ export default class SingleUser extends React.Component {
     return (
       <>
         <section>
+          
+          <img src={user.avatar_url} alt="chosen profile avatar"></img>
           <h2>Username: {user.username}</h2>
           <h2>Name: {user.name}</h2>
-          <img src={user.avatar_url} alt="chosen profile avatar"></img>
           <Context.Consumer>
             {context => (context.state.loggedInAs === user.username && <><PostTopic refreshTopic={this.refreshTopic} /><PostArticle topicUpdate={topicUpdate} refresh={this.refresh}/></>)}
           </Context.Consumer>

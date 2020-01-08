@@ -38,20 +38,20 @@ export default class PostUser extends React.Component {
   return (
    <>
   {postedUser ? <h2>Successfully Signed Up!</h2> :<>{error && <ErrorDisplay error={error}/>}
-   <form onSubmit={this.handleSubmit}>
+   <form className="signUpForm" onSubmit={this.handleSubmit}>
     <label>
      Name:
-    <input required  name='name' value={name} type="text" onChange={this.handleChange}/>
+    <input className="signUpInput" required  name='name' value={name} type="text" onChange={this.handleChange}/>
     </label>
     <label>
      username:
-    <input value={username} name='username' required onChange={this.handleChange}/>
+    <input className="signUpInput" value={username} type="text" name='username' required onChange={this.handleChange}/>
     </label>
     <label>
      Avatar url:
-    <input value={avatarUrl} name='avatarUrl' onChange={this.handleChange}/>
+    <input className="signUpInput" value={avatarUrl} type="text" name='avatarUrl' onChange={this.handleChange}/>
     </label>
-    <button type="submit">Sign Up</button>
+    <button className="signUpBtn" type="submit">Sign Up</button>
    </form></>}
 
    </>

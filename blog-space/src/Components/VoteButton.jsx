@@ -44,7 +44,7 @@ export default class VoteButton extends React.Component {
           onClick={this.handleClick}
         >
           Like
-          <FontAwesomeIcon icon={faThumbsUp} />
+          <FontAwesomeIcon icon={faThumbsUp} className="like-hvr-icon"/>
         </button>
         <button
           className="btn_dislike"
@@ -53,7 +53,7 @@ export default class VoteButton extends React.Component {
           value={-1}
           onClick={this.handleClick}
         >
-          Dislike <FontAwesomeIcon icon={faThumbsDown} />
+          Dislike <FontAwesomeIcon icon={faThumbsDown} className="dislike-hvr-icon"/>
         </button>
       </div>
     );
