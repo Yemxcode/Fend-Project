@@ -58,7 +58,7 @@ export default class Articles extends React.Component {
 
   searchArticle = (author, order, topic, sort_by) => {
     this.setState({ query: { author, order, topic, sort_by}})
-    topic || topic.length ? navigate(`/articles/${topic}`) : navigate(`/articles`)
+    topic ? navigate(`/articles/${topic}`) : navigate(`/articles`)
   };
 
   componentDidUpdate(pP, pS) {
