@@ -37,7 +37,7 @@ function App() {
             />
           </Router>
         </Layout>
-        {/* <Footer/> */}
+        <Footer/>
       </MyContext>
     </>
   );
