@@ -108,12 +108,12 @@ export default class SingleUser extends React.Component {
             <ul className="Ul">
               <h3>Articles</h3>
               {articles.map(article => (
-                <li className="Li" key={article.article_id}>
+                <Link to={`/articles/id/${article.article_id}`}><li className="Li" key={article.article_id}>
                   {" "}
                   <section className="user_articles">
-                    <Link to={`/articles/id/${article.article_id}`}>
+                    
                       {article.title}
-                    </Link>
+                    
                   </section>
                   <p>
                     Created: <Time time={article.created_at} />
@@ -129,7 +129,7 @@ export default class SingleUser extends React.Component {
                       <FontAwesomeIcon icon={faCode} />
                     )}
                   </div>
-                </li>
+                </li></Link>
               ))}
             </ul>
           )}
