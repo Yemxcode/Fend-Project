@@ -41,15 +41,15 @@ export default class PostUser extends React.Component {
    <form className="signUpForm" onSubmit={this.handleSubmit}>
     <label>
      Name:
-    <input className="signUpInput" required  name='name' value={name} type="text" onChange={this.handleChange}/>
+    <input className="signUpInput" required placeholder="Joe Bloggs" name='name' value={name} type="text" onChange={this.handleChange}/>
     </label>
     <label>
      username:
-    <input className="signUpInput" value={username} type="text" name='username' required onChange={this.handleChange}/>
+    <input className="signUpInput" value={username} placeholder="joebloggs123" type="text" name='username' required onChange={this.handleChange}/>
     </label>
     <label>
      Avatar url:
-    <input className="signUpInput" value={avatarUrl} type="text" name='avatarUrl' onChange={this.handleChange}/>
+    <input className="signUpInput" value={avatarUrl} placeholder="https://imageilove.com" type="text" name='avatarUrl' onChange={this.handleChange}/>
     </label>
     <button className="signUpBtn" type="submit">Sign Up</button>
    </form></>}
