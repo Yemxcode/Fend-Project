@@ -30,7 +30,6 @@ export default class CommentsForm extends React.Component {
             onChange={this.handleChange}
             required
             className="signUpInput"
-            type="text"
             placeholder="type your comments here...."
           ></textarea>
             <button className="postBtn" type="submit">

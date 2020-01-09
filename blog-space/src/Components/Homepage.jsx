@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "@reach/router";
 import TopicCard from './TopicCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsDown, faThumbsUp, faNewspaper, faSignOutAlt, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons";
 import '../Layouts/Main.css'
 
 

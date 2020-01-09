@@ -13,6 +13,7 @@ import MyContext from './MyContext';
 import ErrorDisplay from './Components/ErrorDisplay'
 import LoginPage from './Components/LoginPage';
 import PostUser  from './Components/PostUser';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             />
           </Router>
         </Layout>
+        <Footer/>
       </MyContext>
     </>
   );

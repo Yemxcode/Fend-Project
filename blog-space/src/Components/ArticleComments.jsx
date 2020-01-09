@@ -3,7 +3,7 @@ import * as api from "../Api";
 import CommentsForm from "./CommentsForm";
 import SortComment from "./SortComment";
 import FormatComments from "./FormatComments";
-import LoadingSpinner from "./LoadingSpinner";
+
 export default class ArticleComments extends React.Component {
   state = {
     comments: [],
