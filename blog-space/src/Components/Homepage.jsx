@@ -10,8 +10,8 @@ export default function  Homepage  ()  {
  
  return (
   <div className="homepage">
-     <button className="signUpButton"><Link to="/sign_up">Sign-Up <FontAwesomeIcon icon={faUsers} className="hvr-icon" /></Link></button>
-     <button className="browseButton"><Link to="/articles">Browse <FontAwesomeIcon icon={faNewspaper} className="hvr-icon" /></Link></button>
+     <Link to="/sign_up"><button className="signUpButton">Sign-Up <FontAwesomeIcon icon={faUsers} className="hvr-icon" /></button></Link>
+     <Link to="/articles"><button className="browseButton">Browse <FontAwesomeIcon icon={faNewspaper} className="hvr-icon" /></button></Link>
      {/* <TopicCard /> */}
   </div>
  )
