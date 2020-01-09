@@ -10,7 +10,7 @@ export default function PaginationNav ({maxPage, page, changePage}) {
  }
  return (
   <nav>
-   {pageNumbers.map(number => <button disabled={page === number} key={number} onClick={() => changePage(number)} >{number}</button>)}
+   {pageNumbers.map(number => <button className="pagination" disabled={page === number} key={number} onClick={() => changePage(number)} >{number}</button>)}
   
   </nav>
  )
