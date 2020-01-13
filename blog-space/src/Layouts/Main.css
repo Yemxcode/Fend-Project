@@ -665,3 +665,23 @@ background-color: lightgreen;
 .pagination:hover {
     background-color: lightskyblue;
 }
+
+
+.page-footer{
+  background-color: #504f4f;
+  margin-top: 100px;
+}
+.footerContainer{
+        background-color:red;
+      }
+.col-md-12{
+            background-color: rgb(133, 127, 133);
+          }
+.mb-5{
+              background-color: rgb(133, 127, 133);
+            }
+
+.footer-copyright{
+              
+              color: rgba(255, 255, 255, 0.692);
+            }
