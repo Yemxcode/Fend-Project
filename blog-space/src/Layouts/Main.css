@@ -564,8 +564,8 @@ label{
 
 .searchBarBtn{
     text-align: center;
-    background-color: lightgray;
-    color: white;
+    background-color: rgb(109, 108, 108);
+    color: rgb(10, 10, 10);
     border-color: #1615156b;
     border-radius: 25px;
     height: 40px;
@@ -626,11 +626,11 @@ select {
 
 .sortBtn{
     text-align: center;
-    background-color: lightgray;
-    color: white;
+     background-color: rgb(109, 108, 108);
+    color: rgb(10, 10, 10);
     border-color: #1615156b;
     border-radius: 25px;
-    height: 40px;
+    height: 35px;
     width: 200px;
     border: solid;
 }
