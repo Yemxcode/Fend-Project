@@ -97,39 +97,49 @@ export default class SingleUser extends React.Component {
     return (
       <>
         <section>
-          
           <img src={user.avatar_url} alt="chosen profile avatar"></img>
           <h2>Username: {user.username}</h2>
           <h2>Name: {user.name}</h2>
           <Context.Consumer>
-            {context => (context.state.loggedInAs === user.username && <div className="postContainer"><PostTopic refreshTopic={this.refreshTopic} /><PostArticle topicUpdate={topicUpdate} refresh={this.refresh}/></div>)}
+            {context =>
+              context.state.loggedInAs === user.username && (
+                <div className="postContainer">
+                  <PostTopic refreshTopic={this.refreshTopic} />
+                  <PostArticle
+                    topicUpdate={topicUpdate}
+                    refresh={this.refresh}
+                  />
+                </div>
+              )
+            }
           </Context.Consumer>
           {articles.length && (
             <ul className="Ul">
               <h3>Articles</h3>
               {articles.map(article => (
-                <Link to={`/articles/id/${article.article_id}`}><li className="Li" key={article.article_id}>
-                  {" "}
-                  <section className="user_articles">
-                    
-                      {article.title}
-                    
-                  </section>
-                  <p>
-                    Created: <Time time={article.created_at} />
-                  </p>
-                  <div className="icon">
-                    {article.topic === "cooking" && (
-                      <FontAwesomeIcon icon={faHamburger} />
-                    )}
-                    {article.topic === "football" && (
-                      <FontAwesomeIcon icon={faFutbol} />
-                    )}
-                    {article.topic === "coding" && (
-                      <FontAwesomeIcon icon={faCode} />
-                    )}
-                  </div>
-                </li></Link>
+                <Link
+                  to={`/articles/id/${article.article_id}`}
+                  key={article.article_id}
+                >
+                  <li className="Li">
+                    {" "}
+                    <section className="user_articles">{article.title}</section>
+                    <p>
+                      Created: <Time time={article.created_at} />
+                    </p>
+                    <div className="icon">
+                      {article.topic === "cooking" && (
+                        <FontAwesomeIcon icon={faHamburger} />
+                      )}
+                      {article.topic === "football" && (
+                        <FontAwesomeIcon icon={faFutbol} />
+                      )}
+                      {article.topic === "coding" && (
+                        <FontAwesomeIcon icon={faCode} />
+                      )}
+                    </div>
+                  </li>
+                </Link>
               ))}
             </ul>
           )}

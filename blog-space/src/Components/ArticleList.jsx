@@ -10,28 +10,41 @@ export default function ArticleList({ articles, totalCount, maxPage }) {
  else
   return (
     <>
-    <ul className="Ul">
-      <h2>Articles</h2>
-      <h3>Total Article count: {totalCount}</h3>
-      {articles.map(article => (
-        
-        <Link to={`/articles/id/${article.article_id}`}><li className="Li" key={article.article_id}>
-          <section className="article_Title">{article.title}</section>
-          <section className="timeLikes"><p>Created: <Time time={article.created_at} /></p> <p >Likes: {article.votes}</p></section>
-          <section className="articleListComments"> Comments: {article.comment_count}</section>
-          <div className="icon">
-            {article.topic === "cooking" && (
-              <FontAwesomeIcon icon={faHamburger} />
-            )}
-            {article.topic === "football" && (
-              <FontAwesomeIcon icon={faFutbol} />
-            )}
-            {article.topic === "coding" && <FontAwesomeIcon icon={faCode} />}{" "}
-          </div>
-        </li></Link>
-      ))}
-    </ul>
-    
+      <ul className="Ul">
+        <h2>Articles</h2>
+        <h3>Total Article count: {totalCount}</h3>
+        {articles.map(article => (
+          <Link
+            to={`/articles/id/${article.article_id}`}
+            key={article.article_id}
+          >
+            <li className="Li">
+              <section className="article_Title">{article.title}</section>
+              <section className="timeLikes">
+                <p>
+                  Created: <Time time={article.created_at} />
+                </p>{" "}
+                <p>Likes: {article.votes}</p>
+              </section>
+              <section className="articleListComments">
+                {" "}
+                Comments: {article.comment_count}
+              </section>
+              <div className="icon">
+                {article.topic === "cooking" && (
+                  <FontAwesomeIcon icon={faHamburger} />
+                )}
+                {article.topic === "football" && (
+                  <FontAwesomeIcon icon={faFutbol} />
+                )}
+                {article.topic === "coding" && (
+                  <FontAwesomeIcon icon={faCode} />
+                )}{" "}
+              </div>
+            </li>
+          </Link>
+        ))}
+      </ul>
     </>
   );
 }
