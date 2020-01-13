@@ -387,12 +387,12 @@ img {
   text-align: center;
     text-decoration: none;
     color: white;
-    border: solid 2px #39cce6;
-    background-color: lightgrey;
+    border: solid 2px #258fa1;
+    background-color: #39cce6;
     border-radius: 3px;
     transition: .4s;
     margin: 5px 5px 5px 5px;
-    width: 50%;
+    width: 25%;
     height: 50px;
     
 }
@@ -443,12 +443,12 @@ img {
   padding: 0.3em 1em;
     text-decoration: none;
     color: white;
-    border: solid 2px #39cce6;
-    background-color: lightgrey;
+    border: solid 2px rgb(17, 121, 47);
+    background-color: rgb(30, 202, 79);
     border-radius: 3px;
     transition: .4s;
     margin: 5px 5px 5px 5px;
-    width: 50%;
+    width: 25%;
     height: 50px;
     padding: 10px 0px 10px 0px;
   text-align: center;
@@ -472,14 +472,14 @@ img {
 
 
 .browseButton:hover{
-    background-color: #33abe2;
-    color: grey;
-    border-color: lightgrey
+    background-color: #BAF1E4;
+    color: #256058;
+    border-color: #256058;
 } 
 .signUpButton:hover{
-    background-color: #33abe2;
-    color: grey;
-    border-color: lightgrey;
+    background-color: #FCDBE2;
+    color: rgb(116, 37, 37);
+    border-color: #F4908A;
 } 
 
 
@@ -671,15 +671,10 @@ background-color: lightgreen;
   background-color: #504f4f;
   margin-top: 100px;
 }
-.footerContainer{
-        background-color:red;
-      }
+
 .col-md-12{
             background-color: rgb(133, 127, 133);
           }
-.mb-5{
-              background-color: rgb(133, 127, 133);
-            }
 
 .footer-copyright{
               
