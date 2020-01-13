@@ -670,13 +670,34 @@ background-color: lightgreen;
 .page-footer{
   background-color: #504f4f;
   margin-top: 100px;
+  max-width: 100%;
+  height: 200px
 }
 
 .col-md-12{
             background-color: rgb(133, 127, 133);
+            max-width: 100%;
+            height: 100px;
           }
 
 .footer-copyright{
               
               color: rgba(255, 255, 255, 0.692);
+              max-width: 100%;
             }
+
+            .page-footer{
+              max-width: 100%;
+            }
+     .footerContainer{
+      max-width: 100%;
+     }
+        .row{
+          max-width: 0%;
+          
+        }
+          
+            .mb-5{
+              max-width: 100%;
+              
+            } 

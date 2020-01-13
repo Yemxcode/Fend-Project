@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "@reach/router";
-import TopicCard from './TopicCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons";
 import '../Layouts/Main.css'
