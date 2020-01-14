@@ -61,7 +61,7 @@ export default class SingleUser extends React.Component {
   };
 
   componentDidUpdate (pP, pS) {
-    if (pS.update !== this.state.update || pP.username !== this.props.username)
+    if (pS.update !== this.state.update || pP.username !== this.props.username){
       api
         .getUser(this.props.username)
         .then(({ user }) =>
@@ -86,7 +86,7 @@ export default class SingleUser extends React.Component {
           error: { status: response.status, msg: response.data },
           isLoading: false
         })
-      );
+      );}
   }
 
   render() {
