@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
-import LoginPage from "../Components/LoginPage";
+import LoginPage from "../Components/LoginPage.jsx";
 import * as api from "../Api";
 import { Context } from "../MyContext";
 import { navigate } from "@reach/router";
