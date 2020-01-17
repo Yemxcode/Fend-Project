@@ -84,7 +84,8 @@ export default class Articles extends React.Component {
       return (
         <>
           <SearchBar topics={topics} searchArticle={this.searchArticle} />
-          {error ? <ErrorDisplay error={error} /> : <><ArticleList totalCount={totalCount} articles={articles} /> <PaginationNav page={this.state.query.page} changePage={this.changePage} maxPage={maxPage} /> </>}
+          {error ? <ErrorDisplay error={error} /> : <>{<><h2>Articles</h2>
+            <h3>Total Article count: {totalCount}</h3>{articles.map(article => <ArticleList totalCount={totalCount} key={article.article_id}article={article} />)}</>}<PaginationNav page={this.state.query.page} changePage={this.changePage} maxPage={maxPage} /> </>}
         </>
       );
   }

@@ -15,6 +15,9 @@ export default class MyContext extends React.Component {
  componentDidUpdate = (pP, pS) => {
        if (pS.loggedInAs !== this.state.loggedInAs){
              localStorage.setItem('loggedUser', this.state.loggedInAs )
+             if (this.state.loggedInAs === null) {
+                   localStorage.removeItem('loggedUser')
+             }
        }
  }
  

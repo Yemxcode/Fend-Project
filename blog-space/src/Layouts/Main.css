@@ -22,13 +22,17 @@ a:active {
 }
 
 .Ul {
+
  display: flexbox;
  position: relative;
- margin: 100px auto 0;
- padding: 10px;
+ margin: 20px auto 0;
+ padding-bottom: 20px;
+ width: 80%;
+
+ 
 }
 
-img {
+.imgUser {
   border-radius: 8px;
   border-style: solid;
   border-color: darkgray;
@@ -40,7 +44,6 @@ img {
  display: grid;
  background-color: rgb(240, 238, 238);
  border: 1px solid rgb(131, 128, 128);
- padding: 20px;
  transition: .5s;
  text-align: center;
 }
@@ -52,7 +55,25 @@ img {
 
 
 .Li{
-    margin-bottom: 10px;
+  display: grid;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+
+    
+}
+
+.articleLi {
+  display: grid;
+ background-color: rgb(240, 238, 238);
+ border: 1px solid rgb(131, 128, 128);
+ transition: .5s;
+ text-align: center;
+  display: grid;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background: url('../Assets/default.jpeg') fixed bottom;
 }
 
 .userSpan {
@@ -669,7 +690,7 @@ background-color: lightgreen;
 
 .page-footer{
   background-color: #504f4f;
-  margin-top: 100px;
+  margin-top: 300px;
   max-width: 100%;
   height: 200px
 }
@@ -701,3 +722,42 @@ background-color: lightgreen;
               max-width: 100%;
               
             } 
+
+
+            .articleImages{
+              display: grid;
+              position: relative;
+              
+               border-radius: 8px;
+              
+  /* border-style: solid; */
+  
+  height:300px;
+  width: 100%;
+            }
+            .articleInfo {
+              display: inline-table;
+            }
+
+
+            ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+  width: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
