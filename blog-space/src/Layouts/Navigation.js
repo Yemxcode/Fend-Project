@@ -79,7 +79,9 @@ export default class NavigationBar extends React.Component {
                       {" "}
                       Users
                     </Nav.Link>
-                    <Nav.Link onClick={this.handleClick}>Log In</Nav.Link>
+                    <Context.Consumer>
+                      {context => (<Nav.Link onClick={this.handleClick}>{!context.state.loggedInAs && 'Log In'}</Nav.Link>)}
+                    </Context.Consumer>
                     <Context.Consumer>
                       {context => (<Nav.Link onClick={() => {
                         context.logIn(null);

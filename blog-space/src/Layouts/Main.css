@@ -65,15 +65,19 @@ a:active {
 
 .articleLi {
   display: grid;
- background-color: rgb(240, 238, 238);
- border: 1px solid rgb(131, 128, 128);
+ background-color: rgb(63, 59, 59);
+ /* border: 1px solid rgb(131, 128, 128); */
  transition: .5s;
  text-align: center;
   display: grid;
   margin-top: 5px;
   padding: 10px;
   border-radius: 10px;
-  background: url('../Assets/default.jpeg') fixed bottom;
+}
+
+.articleLi:hover{
+  transform: scale(1.06);
+ background-color: rgb(144, 141, 141)
 }
 
 .userSpan {
