@@ -11,10 +11,9 @@ import SingleUser from './Components/SingleUser';
 import SingleArticle from './Components/SingleArticle';
 import MyContext from './MyContext';
 import ErrorDisplay from './Components/ErrorDisplay'
-import LoginPage from './Components/LoginPage';
 import PostUser  from './Components/PostUser';
 import Footer from './Components/Footer';
-
+import LoginPage from './Components/LoginPage';
 function App() {
   return (
     <>
@@ -29,7 +28,6 @@ function App() {
             <Users path="/users" />
             <SingleUser path="/users/:username" />
             <SingleArticle path="/articles/id/:id" />
-            <LoginPage path="/login" />
             <PostUser path="/sign_up"/>
             <ErrorDisplay
               error={{ status: 404, msg: "Route Not Found :/" }}
